@@ -27,13 +27,12 @@ class ContactParticulier
     private $Message;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true,options={"default": "CURRENT_TIMESTAMP"})
      */
     private $Date;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Particulier", inversedBy="Id_contact_particulier")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $ID_Particulier;
 
@@ -89,4 +88,5 @@ class ContactParticulier
 
         return $this;
     }
+
 }
