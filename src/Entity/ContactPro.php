@@ -27,13 +27,12 @@ class ContactPro
     private $Message;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true,options={"default": "CURRENT_TIMESTAMP"})
      */
     private $Date;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\pro", inversedBy="Id_contact_pro")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Pro", inversedBy="Id_contact_pro")
      */
     private $ID_Pro;
 
@@ -78,15 +77,17 @@ class ContactPro
         return $this;
     }
 
-    public function getIDPro(): ?pro
+    public function getIDPro(): ?Pro
     {
         return $this->ID_Pro;
     }
 
-    public function setIDPro(?pro $ID_Pro): self
+    public function setIDPro(?Pro $ID_Pro): self
     {
         $this->ID_Pro = $ID_Pro;
 
         return $this;
     }
 }
+
+
