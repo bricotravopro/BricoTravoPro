@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ParticulierRepository")
@@ -18,6 +19,7 @@ class Particulier
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min="2")
      */
     private $Nom;
 
@@ -33,6 +35,7 @@ class Particulier
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Length(min="5")
      */
     private $CP;
 
@@ -42,7 +45,7 @@ class Particulier
     private $Email;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=32)
      */
     private $MotDePasse;
 
