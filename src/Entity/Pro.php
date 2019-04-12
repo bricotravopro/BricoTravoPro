@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -75,6 +77,22 @@ class Pro
      * @ORM\Column(type="string", length=255)
      */
     private $Logo;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\ContactPro", mappedBy="ID_Pro")
+     */
+    private $Id_contact_pro;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Avis", mappedBy="Id_Pro")
+     */
+    private $Id_Pro;
+
+    public function __construct()
+    {
+        $this->Id_contact_pro = new ArrayCollection();
+        $this->Id_Pro = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -221,6 +239,68 @@ class Pro
     public function setLogo(string $Logo): self
     {
         $this->Logo = $Logo;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ContactPro[]
+     */
+    public function getIdContactPro(): Collection
+    {
+        return $this->Id_contact_pro;
+    }
+
+    public function addIdContactPro(ContactPro $idContactPro): self
+    {
+        if (!$this->Id_contact_pro->contains($idContactPro)) {
+            $this->Id_contact_pro[] = $idContactPro;
+            $idContactPro->setIDPro($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIdContactPro(ContactPro $idContactPro): self
+    {
+        if ($this->Id_contact_pro->contains($idContactPro)) {
+            $this->Id_contact_pro->removeElement($idContactPro);
+            // set the owning side to null (unless already changed)
+            if ($idContactPro->getIDPro() === $this) {
+                $idContactPro->setIDPro(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Avis[]
+     */
+    public function getIdPro(): Collection
+    {
+        return $this->Id_Pro;
+    }
+
+    public function addIdPro(Avis $idPro): self
+    {
+        if (!$this->Id_Pro->contains($idPro)) {
+            $this->Id_Pro[] = $idPro;
+            $idPro->setIdPro($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIdPro(Avis $idPro): self
+    {
+        if ($this->Id_Pro->contains($idPro)) {
+            $this->Id_Pro->removeElement($idPro);
+            // set the owning side to null (unless already changed)
+            if ($idPro->getIdPro() === $this) {
+                $idPro->setIdPro(null);
+            }
+        }
 
         return $this;
     }
