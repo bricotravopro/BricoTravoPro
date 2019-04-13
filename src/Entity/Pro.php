@@ -21,61 +21,75 @@ class Pro
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $Entreprise;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $Nom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $Prenom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $NumeroSiret;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $Adresse;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
      */
     private $CP;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $Telephone;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Email()
+     *
      */
     private $Email;
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
      */
     private $SiteWeb;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $SecteurActivite;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $MotDePasse;
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
      */
     private $Logo;
 
@@ -88,6 +102,11 @@ class Pro
      * @ORM\OneToMany(targetEntity="App\Entity\Avis", mappedBy="Id_Pro")
      */
     private $Id_Pro;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $PageFacebook;
 
     public function __construct()
     {
@@ -302,6 +321,18 @@ class Pro
                 $idPro->setIdPro(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPageFacebook(): ?string
+    {
+        return $this->PageFacebook;
+    }
+
+    public function setPageFacebook(string $PageFacebook): self
+    {
+        $this->PageFacebook = $PageFacebook;
 
         return $this;
     }

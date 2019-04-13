@@ -37,7 +37,7 @@ class Particulier
 
     /**
      * @ORM\Column(type="integer")
-     * @Assert\Length(min="5")
+     * @Assert\Length(max="5")
      */
     private $CP;
 
