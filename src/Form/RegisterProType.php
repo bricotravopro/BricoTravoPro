@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Pro;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -27,8 +28,15 @@ class RegisterProType extends AbstractType
             ->add('MotDePasse')
             ->add('SiteWeb')
             ->add('PageFacebook')
+            ->add('CGU', CheckboxType::class, [
+                'label'    => 'J’ai bien pris connaissance des conditions générales d’utilisation',
+                'required' => false,
+            ])
+            ->add('Newsletter', CheckboxType::class, [
+                'label'    => 'J’accepte recevoir des informations via la newsletter',
+                'required' => false,
+            ])
         ;
-
     }
 
     public function configureOptions(OptionsResolver $resolver)
