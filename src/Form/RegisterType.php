@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Particulier;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,7 +17,7 @@ class RegisterType extends AbstractType
             ->add('Prenom')
             ->add('Adresse')
             ->add('CP')
-            ->add('Email')
+            ->add('Email', EmailType::class)
             ->add('MotDePasse')
         ;
     }
@@ -27,4 +28,5 @@ class RegisterType extends AbstractType
             'data_class' => Particulier::class,
         ]);
     }
+
 }

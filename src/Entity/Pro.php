@@ -21,41 +21,57 @@ class Pro
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(min="2")
      */
     private $Entreprise;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(min="2")
      */
     private $Nom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(min="2")
      */
     private $Prenom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $NumeroSiret;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $Adresse;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
+     * @Assert\Length(min="5", max="5")
      */
     private $CP;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Regex(
+     *     pattern     = " /^^(\d{2}[ \.]){4}\d{2}$/")
      */
     private $Telephone;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Email()
+     *
      */
     private $Email;
 
@@ -66,16 +82,20 @@ class Pro
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $SecteurActivite;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=16)
+     * @Assert\NotBlank
+     * @Assert\Length(min="6", max="16")
      */
     private $MotDePasse;
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
      */
     private $Logo;
 
@@ -88,6 +108,22 @@ class Pro
      * @ORM\OneToMany(targetEntity="App\Entity\Avis", mappedBy="Id_Pro")
      */
     private $Id_Pro;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $PageFacebook;
+
+    /**
+     * @ORM\Column(type="boolean")
+     * @Assert\IsTrue(message="Veuillez cocher la case")
+     */
+    private $CGU;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $Newsletter;
 
     public function __construct()
     {
@@ -302,6 +338,42 @@ class Pro
                 $idPro->setIdPro(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPageFacebook(): ?string
+    {
+        return $this->PageFacebook;
+    }
+
+    public function setPageFacebook(string $PageFacebook): self
+    {
+        $this->PageFacebook = $PageFacebook;
+
+        return $this;
+    }
+
+    public function getCGU(): ?bool
+    {
+        return $this->CGU;
+    }
+
+    public function setCGU(bool $CGU): self
+    {
+        $this->CGU = $CGU;
+
+        return $this;
+    }
+
+    public function getNewsletter(): ?bool
+    {
+        return $this->Newsletter;
+    }
+
+    public function setNewsletter(bool $Newsletter): self
+    {
+        $this->Newsletter = $Newsletter;
 
         return $this;
     }
