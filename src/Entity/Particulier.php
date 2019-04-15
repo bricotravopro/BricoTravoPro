@@ -53,9 +53,9 @@ class Particulier
     private $Email;
 
     /**
-     * @ORM\Column(type="string", length=16)
+     * @ORM\Column(type="string", length=32)
      * @Assert\NotBlank
-     * @Assert\Length(min="6", max="16")
+     * @Assert\Length(min="6", max="32")
      */
     private $MotDePasse;
 
@@ -118,6 +118,18 @@ class Particulier
     public function setAdresse(string $Adresse): self
     {
         $this->Adresse = $Adresse;
+
+        return $this;
+    }
+
+    public function getVille(): ?string
+    {
+        return $this->Ville;
+    }
+
+    public function setVille(string $Ville): self
+    {
+        $this->Ville = $Ville;
 
         return $this;
     }
@@ -220,15 +232,4 @@ class Particulier
         return $this;
     }
 
-    public function getVille(): ?string
-    {
-        return $this->Ville;
-    }
-
-    public function setVille(string $Ville): self
-    {
-        $this->Ville = $Ville;
-
-        return $this;
-    }
 }

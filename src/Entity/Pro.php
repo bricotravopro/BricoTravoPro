@@ -88,9 +88,9 @@ class Pro
     private $SecteurActivite;
 
     /**
-     * @ORM\Column(type="string", length=16)
+     * @ORM\Column(type="string", length=32)
      * @Assert\NotBlank
-     * @Assert\Length(min="6", max="16")
+     * @Assert\Length(min="6", max="32")
      */
     private $MotDePasse;
 
@@ -98,7 +98,7 @@ class Pro
      * @ORM\Column()
      *@Assert\File(
      *     maxSize = "1024k",
-     *     mimeTypes = {"application/pdf", "image/png", "image/jpeg"},
+     *     mimeTypes = {"application/pdf", "image/png", "image/jpeg", "image/svg", "image/jpg"},
      *     mimeTypesMessage = "Veuillez télécharger un fichier au format jpeg/png/pdf "
      * )
      */
