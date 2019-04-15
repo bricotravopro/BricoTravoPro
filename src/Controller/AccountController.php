@@ -44,5 +44,38 @@ class AccountController extends AbstractController
             'user' => $user
         ]);
     }
+
+
+        
+        // Compte particulier
+        // modifier mot de passe
+        // modifier mail
+
+
+/*         public function edit(Request $request, Particulier $particulier)
+        {
+            if ($account.id->isSubmitted() && $account.id->isValid()) {
+                $slug = $slugify->slugify($particulier->getName());
+                $particulier->setSlug($slug);
+                // Le persist est optionnel
+                $this->getDoctrine()->getManager()->flush();
+                $this->addFlash('success', 'Le produit '.$particulier->getId().' a bien été modifié.');
+                return $this->redirectToRoute('particulier_list');
+            }
+            return $this->render('particulier/edit.html.twig', [
+                'particulier' => $particulier,
+                'account.id' => $account.id->createView()
+            ]);
+        }
+     */
+    
+    
+
+
+
+        // Compter pro  
+
+
+
 }
 
