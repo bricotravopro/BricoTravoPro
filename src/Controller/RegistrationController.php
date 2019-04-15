@@ -30,6 +30,12 @@ class RegistrationController extends AbstractController
 
             $manager->persist($particulier);
             $manager->flush();
+
+            // Redirige l'utilisateur vers la page home
+            // TODO: Changer le système d'id quand on aura un système de connexion
+            return $this->redirectToRoute('home', [
+                'id' => $particulier ->getId()
+            ]);
         }
 
         return $this->render('registration/UserRegistration.html.twig', [
