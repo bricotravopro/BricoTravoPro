@@ -5,11 +5,15 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProRepository")
+ * @ORM\Entity
+ * @UniqueEntity(fields={"Email"}, message="cet email est déjà connu !")
+ * @UniqueEntity(fields={"Entreprise"}, message="cette entreprise est déjà connu !")
  */
 class Pro
 {
@@ -28,7 +32,7 @@ class Pro
     private $Entreprise;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\NotBlank
      * @Assert\Length(min="2")
      */
@@ -69,10 +73,9 @@ class Pro
     private $Telephone;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
+     * @ORM\Column(type="string", length=255,unique=true)
      * @Assert\Email()
-     *
+     * @Assert\NotBlank
      */
     private $Email;
 
