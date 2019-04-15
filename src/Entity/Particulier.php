@@ -69,6 +69,12 @@ class Particulier
      */
     private $Id_Particulier;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     */
+    private $Ville;
+
     public function __construct()
     {
         $this->Id_contact_particulier = new ArrayCollection();
@@ -210,6 +216,18 @@ class Particulier
                 $idParticulier->setIdParticulier(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getVille(): ?string
+    {
+        return $this->Ville;
+    }
+
+    public function setVille(string $Ville): self
+    {
+        $this->Ville = $Ville;
 
         return $this;
     }
