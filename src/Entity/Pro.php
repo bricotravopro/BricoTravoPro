@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -76,7 +77,7 @@ class Pro
     private $Email;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $SiteWeb;
 
@@ -94,8 +95,12 @@ class Pro
     private $MotDePasse;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     *
+     * @ORM\Column()
+     *@Assert\File(
+     *     maxSize = "1024k",
+     *     mimeTypes = {"application/pdf", "image/png", "image/jpeg"},
+     *     mimeTypesMessage = "Veuillez télécharger un fichier au format jpeg/png/pdf "
+     * )
      */
     private $Logo;
 
@@ -110,7 +115,7 @@ class Pro
     private $Id_Pro;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $PageFacebook;
 
@@ -274,14 +279,14 @@ class Pro
         return $this;
     }
 
-    public function getLogo(): ?string
+    public function getLogo()
     {
         return $this->Logo;
     }
 
-    public function setLogo(string $Logo): self
+    public function setLogo(File $file)
     {
-        $this->Logo = $Logo;
+        $this->Logo = $file;
 
         return $this;
     }
