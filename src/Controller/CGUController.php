@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class CGU extends AbstractController
+class CGUController extends AbstractController
 {
     /**
      * @Route("/CGU", name="CGU")
