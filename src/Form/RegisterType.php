@@ -17,6 +17,7 @@ class RegisterType extends AbstractType
             ->add('Prenom')
             ->add('Adresse')
             ->add('CP')
+            ->add('Ville')
             ->add('Email', EmailType::class)
             ->add('MotDePasse')
         ;

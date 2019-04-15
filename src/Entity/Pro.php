@@ -63,7 +63,7 @@ class Pro
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
      * @Assert\Regex(
-     *     pattern     = " /^^(\d{2}[ \.]){4}\d{2}$/")
+     *     pattern     = " /^(?:(?:\+|00)33[\s.\-\/]{0,3}(?:\(0\)[\s.\-\/]{0,3})?|0)[1-9](?:(?:[\s.\-\/]?\d{2}){4}|\d{2}(?:[\s.\-\/]?\d{3}){2})$/")
      */
     private $Telephone;
 
@@ -124,6 +124,12 @@ class Pro
      * @ORM\Column(type="boolean")
      */
     private $Newsletter;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     */
+    private $Ville;
 
     public function __construct()
     {
@@ -374,6 +380,18 @@ class Pro
     public function setNewsletter(bool $Newsletter): self
     {
         $this->Newsletter = $Newsletter;
+
+        return $this;
+    }
+
+    public function getVille(): ?string
+    {
+        return $this->Ville;
+    }
+
+    public function setVille(string $Ville): self
+    {
+        $this->Ville = $Ville;
 
         return $this;
     }
