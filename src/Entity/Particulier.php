@@ -22,32 +22,40 @@ class Particulier
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min="2")
+     * @Assert\NotBlank
      */
     private $Nom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $Prenom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $Adresse;
 
     /**
      * @ORM\Column(type="integer")
-     * @Assert\Length(min="5")
+     * @Assert\Length(max="5")
+     * @Assert\NotBlank
      */
     private $CP;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Email()
+     * @Assert\NotBlank
      */
     private $Email;
 
     /**
-     * @ORM\Column(type="string", length=32)
+     * @ORM\Column(type="string", length=16)
+     * @Assert\NotBlank
+     * @Assert\Length(min="6", max="16")
      */
     private $MotDePasse;
 
