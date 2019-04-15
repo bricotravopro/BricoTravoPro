@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 class ProfessionnelController extends AbstractController
 {
     /**
-     * @Route("/", name="professionnel")
+     * @Route("/professionnel", name="professionnel")
      * @return Response
      */
     public function index()
