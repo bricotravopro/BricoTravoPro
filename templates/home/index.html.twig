@@ -1,36 +1,35 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+        <div class="col-12">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="padding-left: 0px">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/images/slide1.jpg" class="d-block w-100" alt="slide1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/images/slide2.jpg" class="d-block w-100" alt="slide2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/images/slide3.jpg" class="d-block w-100" alt="slide3">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12">
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="padding-left: 0px">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="/images/slide1.jpg" class="d-block w-100" alt="slide1">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="/images/slide2.jpg" class="d-block w-100" alt="slide2">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="/images/slide3.jpg" class="d-block w-100" alt="slide3">
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-            </div>
             <div class="col-8 bg-primary">
                 <h2>Recherche d'un pro</h2>
                 <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
@@ -40,27 +39,49 @@
                 <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
             </div>
         </div>
-        <section class="text-light bg-dark" >
-            <div class="container" style="text-align: center; padding-top: 15px; padding-bottom: 15px">
-                <div class="col-12">
-                    <h3>Connectez-vous</h3>
+        </div>
+    </div>
+    <section id="infos">
+        <div class="container">
+            <div class="row" style="alignment: center">
+                <div class="col-md-4">
+                    <div class="icon1">1</div>
+                    <h3>Recherche simplifiée</h3>
+                    <p>Les recherches de professionnels sont simplifiées selon le corps de métier recherché.</p>
                 </div>
-                <div class="row">
-                    <div class="col-6">
-                        <p>Pas encore inscrit ...</p>
-                        <button type="button" class="btn btn-outline-light">Inscription</button>
-                    </div>
-                    <div class="col-6">
-                        <p>Déjà inscrit ...</p>
-                        <button type="button" class="btn btn-outline-light">Connexion</button>
-                    </div>
+                <div class="col-md-4">
+                    <div class="icon1">2</div>
+                    <h3>Base de données à jour</h3>
+                    <p>Une intérrogation des base de données des registres des métiers est régulièrement effectuée afin de certifier l'activité des entreprises.</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="icon1">3</div>
+                    <h3>Inscription gratuite</h3>
+                    <p>L'inscription et l'utilisation sont totalement gratuites. Une inscription est nécessaire pour bénéficier de l'ensemble des fonctionnalités.</p>
                 </div>
             </div>
-        </section>
-        <section id="references">
+        </div>
+    </section>
+    <section class="text-light bg-dark" >
+        <div class="container" style="text-align: center; padding-top: 15px; padding-bottom: 15px">
+            <div class="col-12">
+                <h3>Connectez-vous</h3>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Pas encore inscrit ...</p>
+                    <button type="button" class="btn btn-outline-light">Inscription</button>
+                </div>
+                <div class="col-md-6">
+                    <p>Déjà inscrit ...</p>
+                    <button type="button" class="btn btn-outline-light">Connexion</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="references">
 
-        </section>
-    </div>
+    </section>
 
 
 {% endblock %}
