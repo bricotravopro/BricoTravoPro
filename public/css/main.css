@@ -3,3 +3,18 @@
 body{
     font-family: 'Slabo 27px', serif;
 }
+
+.icon1{
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    background-color: #e08d1e;
+    transform: rotate(45deg);
+}
+.icon2{
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    background-color: #00aa9e;
+    transform: rotate(45deg);
+}
