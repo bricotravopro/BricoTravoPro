@@ -2,18 +2,47 @@
 
 namespace App\Controller;
 
+use App\Entity\Particulier;
+use App\Form\RegisterType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 class AccountController extends AbstractController
 {
+    /* **************
+    **
+    **  Section infos personnelles:
+    **
+    ************** */
+
+    // Section infos personnel
+
     /**
-     * @Route("/account", name="account")
-     */
-    public function index()
+    * @Route("/settings/{id}", name="user_infos")
+    * @param Request $request
+    * @return Response
+    */
+    // TODO: Changer l'url {id} quand on aura un système de connexion
+    public function UserSettings(Request $request, Particulier $user)
     {
-        return $this->render('account/index.html.twig', [
-            'controller_name' => 'AccountController',
+        $form = $this->createForm(RegisterType::class, $user);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            // Màj l'utilisateur dans la BDD
+            $manager = $this->getDoctrine()->getManager();
+
+            $manager->persist($user);
+            $manager->flush();
+        }
+
+        return $this->render('particuliers\account_infos.html.twig', [
+            'form' => $form->createView(),
+            'user' => $user
         ]);
     }
 }
+
