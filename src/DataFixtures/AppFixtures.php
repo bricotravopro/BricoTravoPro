@@ -9,17 +9,21 @@ use Cocur\Slugify\SlugifyInterface;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Faker\Factory;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AppFixtures extends Fixture
 {
     /**
      * @var SlugifyInterface
+     * @var UserPasswordEncoderInterface
      */
     private $slugify;
+    private $encoder;
 
-    public function __construct(SlugifyInterface $slugify)
+    public function __construct(UserPasswordEncoderInterface $encoder,SlugifyInterface $slugify)
     {
         $this->slugify = $slugify;
+        $this->encoder = $encoder;
     }
 
     public function load(ObjectManager $manager)
@@ -28,7 +32,7 @@ class AppFixtures extends Fixture
 
         // Création des users
         $users = []; // Le tableau nous aide à retrouver les utilisateurs
-        for ($i = 1; $i <= 100; $i++) {
+        for ($i = 1; $i <= 10; $i++) {
             $user = new Particulier();
             $user->setPrenom($faker->firstName($gender = null));
             $user->setNom($faker->lastName);
@@ -38,14 +42,14 @@ class AppFixtures extends Fixture
                 '59000', '59260', '59800', '80000', '75000'
             ]));
             $user->setEmail($faker->safeEmail);
-            $user->setMotDePasse($faker->password);
+            $user->setMotDePasse($this->encoder->encodePassword($user, 'demopassword'));
             $user->setEmail($faker->safeEmail);
 
             $manager->persist($user);
             $users[$i] = $user;
         }
 
-        for ($i = 1; $i <= 100; $i++) {
+        for ($i = 1; $i <= 10; $i++) {
             $user = new Pro();
             $user->setEntreprise($faker->domainWord($gender = null));
             $user->setPrenom($faker->firstName($gender = null));

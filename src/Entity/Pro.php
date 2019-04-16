@@ -91,7 +91,7 @@ class Pro
     private $SecteurActivite;
 
     /**
-     * @ORM\Column(type="string", length=32)
+     * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
      * @Assert\Length(min="6", max="32")
      */
@@ -108,7 +108,7 @@ class Pro
     private $Logo;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ContactPro", mappedBy="ID_Pro")
+     * @ORM\OneToMany(targetEntity="App\Entity\ContactPro", mappedBy="ID_Pro", nullable=true)
      */
     private $Id_contact_pro;
 
