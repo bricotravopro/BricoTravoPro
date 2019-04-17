@@ -17,7 +17,7 @@ class SecteurActiviteController extends AbstractController
      */
     public function SecteurActivite(SecteurActiviteRepository $repository)
     {
-        $secteurActivite = $repository->findAll();
+        $SecteurActivite = $repository->findAll();
 
         return $this->render('Search/SecteurActivite.html.twig');
     }
