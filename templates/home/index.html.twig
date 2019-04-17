@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
+            <!-- Slider-banner -->
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="padding-left: 0px">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -100,25 +100,58 @@
             </div>
         </div>
     </section>
-    <section class="text-light bg-dark" >
-        <div class="container" style="text-align: center; padding-top: 15px; padding-bottom: 15px">
-            <div class="col-12">
-                <h3>Connectez-vous</h3>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <p>Pas encore inscrit ...</p>
-                    <button type="button" class="btn btn-outline-light">Inscription</button>
-                </div>
-                <div class="col-md-6">
-                    <p>Déjà inscrit ...</p>
-                    <button type="button" class="btn btn-outline-light">Connexion</button>
+    <br>
+    {{ include('CallToAction/cta-connexion.html.twig') }}
+    <br>
+    <section id="references">
+        <h3 class="text-center">Nos partenaires :</h3>
+        <div class="container">
+            <!-- Carousel logos partenaires -->
+            <div class="row blog">
+                <div class="col-md-12">
+                    <div id="blogCarousel" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#blogCarousel" data-slide-to="1"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row justify-content-between">
+                                    <div class="col-md-3">
+                                        <img src="/images/logo_partenaire_cma.svg" alt="Logo Chambre des Métiers et de l'Artisanat" style="max-width:50%;">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <img src="/images/logo_partenaire_maitresartisans.svg" alt="Logo Maître artisan" style="max-width:50%;">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <img src="/images/logo_partenaire_webforce3.svg" alt="Logo Webforce3" style="max-width:50%;">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <img src="/images/logo_partenaire_hautsdefrance.svg" alt="Logo Région Hauts de France" style="max-width:50%;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <img src="/images/logo_partenaire_tdipointcom.svg" alt="Logo TDI.com" style="max-width:50%;">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <img src="/images/logo_partenaire_leroy-merlin.svg" alt="Logo Leroy Merlin" style="max-width:50%;">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <img src="/images/logo_partenaire_point-p.svg" alt="Logo Point P" style="max-width:50%;">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <img src="/images/logo_partenaire_castorama.svg" alt="Logo Castorama" style="max-width:50%;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
-    <section id="references">
-
     </section>
 
 
