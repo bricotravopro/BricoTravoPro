@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des particuliers - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th>#</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Ville</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for particulier in particuliers %}
+            <tr>
+                <th scope="row">{{ particulier.id}}</th>
+                <td>{{ particulier.Nom}}</td>
+                <td>{{ particulier.Prenom}}</td>
+                <td>{{ particulier.Email}}</td>
+                <td>{{ particulier.Ville}}</td>
+                <td>
+                    <form method="POST" action="{{ path('particulier_delete', {'id': particulier.id}) }}" onsubmit="return confirm('Etes-vous sûr de vouloir supprimer {{ particulier.nom }} ?')">
+                        <input type="hidden" name="token" value="{{ csrf_token('delete') }}" />
+                        <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
