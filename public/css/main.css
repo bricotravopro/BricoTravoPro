@@ -10,13 +10,23 @@ body{
     width: 80px;
     height: 80px;
     border-radius: 10px;
-    background-color: #e08d1e;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ddd1ba+0,e08d1e+80,5e190d+100 */
+    background: rgb(221,209,186); /* Old browsers */
+    background: -moz-linear-gradient(left, rgba(221,209,186,1) 0%, rgba(224,141,30,1) 80%, rgba(94,25,13,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(221,209,186,1) 0%,rgba(224,141,30,1) 80%,rgba(94,25,13,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(221,209,186,1) 0%,rgba(224,141,30,1) 80%,rgba(94,25,13,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ddd1ba', endColorstr='#5e190d',GradientType=1 ); /* IE6-9 */
     transform: rotate(45deg);
 }
 .icon2{
     width: 80px;
     height: 80px;
     border-radius: 10px;
-    background-color: #00aa9e;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#efefef+0,00aa9e+80,000442+100 */
+    background: rgb(239,239,239); /* Old browsers */
+    background: -moz-linear-gradient(left, rgba(239,239,239,1) 0%, rgba(0,170,158,1) 80%, rgba(0,4,66,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(239,239,239,1) 0%,rgba(0,170,158,1) 80%,rgba(0,4,66,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(239,239,239,1) 0%,rgba(0,170,158,1) 80%,rgba(0,4,66,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', endColorstr='#000442',GradientType=1 ); /* IE6-9 */
     transform: rotate(45deg);
 }
