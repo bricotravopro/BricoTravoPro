@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des pros - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th>#</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Entreprise</th>
+            <th>Secteur d'activité</th>
+            <th>N°Siret</th>
+            <th>Email</th>
+            <th>Ville</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for professionnel in professionnels %}
+            <tr>
+                <th scope="row">{{ professionnel.id}}</th>
+                <td>{{ professionnel.Nom}}</td>
+                <td>{{ professionnel.Prenom}}</td>
+                <td>{{ professionnel.entreprise}}</td>
+                <td>{{ professionnel.secteuractivite}}</td>
+                <td>{{ professionnel.numerosiret}}</td>
+                <td>{{ professionnel.Email}}</td>
+                <td>{{ professionnel.Ville}}</td>
+                <td>
+                    <form method="POST" action="{{ path('pro_delete', {'id': professionnel.id}) }}" onsubmit="return confirm('Etes-vous sûr de vouloir supprimer {{ professionnel.nom }} ?')">
+                        <input type="hidden" name="token" value="{{ csrf_token('delete') }}" />
+                        <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
