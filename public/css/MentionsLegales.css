@@ -1,4 +1,4 @@
-h1{
+.info{
     padding-top: 35px;
     height: 110px;
     font-size: 32px;
@@ -7,7 +7,7 @@ h1{
     color: #FFFFFF;
     border-bottom: 10px solid #E08D1E;
 }
-#mentions{
+#docs{
     margin-top: 52px;
     margin-bottom: 52px;
     width: 800px;
