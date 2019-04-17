@@ -32,7 +32,7 @@ class ContactPro
     private $Date;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Pro", inversedBy="Id_contact_pro")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Pro", inversedBy="id")
      */
     private $ID_Pro;
 
