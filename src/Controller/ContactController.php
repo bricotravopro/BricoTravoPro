@@ -72,6 +72,6 @@ class ContactController extends AbstractController
      */
     public function Contact(Request $request)
     {
-        return $this->render('contact/contact-mail.html.twig');
+
     }
 }
