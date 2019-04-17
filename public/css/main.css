@@ -3,12 +3,12 @@
 body{
     font-family: 'Slabo 27px', serif;
 }
-#banner {
+#banner{
     margin: 0;
     padding: 0;
     width: 100%;
 }
-.icon1 {
+.icon1{
     width: 80px;
     height: 80px;
     border-radius: 40px;
