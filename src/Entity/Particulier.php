@@ -61,16 +61,6 @@ class Particulier implements UserInterface, \Serializable
     private $MotDePasse;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ContactParticulier", mappedBy="ID_Particulier")
-     */
-    private $Id_contact_particulier;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Avis", mappedBy="Id_Particulier")
-     */
-    private $Id_Particulier;
-
-    /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
      */
@@ -78,8 +68,8 @@ class Particulier implements UserInterface, \Serializable
 
     public function __construct()
     {
-        $this->Id_contact_particulier = new ArrayCollection();
-        $this->Id_Particulier = new ArrayCollection();
+        $this->isActive = true;
+        $this->roles = ['ROLE_USER'];
     }
 
     public function getId(): ?int
@@ -203,37 +193,6 @@ class Particulier implements UserInterface, \Serializable
     }
 
     /**
-     * @return Collection|Avis[]
-     */
-    public function getIdParticulier(): Collection
-    {
-        return $this->Id_Particulier;
-    }
-
-    public function addIdParticulier(Avis $idParticulier): self
-    {
-        if (!$this->Id_Particulier->contains($idParticulier)) {
-            $this->Id_Particulier[] = $idParticulier;
-            $idParticulier->setIdParticulier($this);
-        }
-
-        return $this;
-    }
-
-    public function removeIdParticulier(Avis $idParticulier): self
-    {
-        if ($this->Id_Particulier->contains($idParticulier)) {
-            $this->Id_Particulier->removeElement($idParticulier);
-            // set the owning side to null (unless already changed)
-            if ($idParticulier->getIdParticulier() === $this) {
-                $idParticulier->setIdParticulier(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
      * Returns the roles granted to the user.
      *
      *     public function getRoles()
@@ -321,7 +280,7 @@ class Particulier implements UserInterface, \Serializable
     {
         list(
             $this->id,
-            $this->email,
+            $this->Email,
             $this->MotDePasse
             ) = unserialize($serialized, ['allowed_classes' => false]);
     }

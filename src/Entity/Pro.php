@@ -98,7 +98,7 @@ class Pro
     private $MotDePasse;
 
     /**
-     * @ORM\Column()
+     * @ORM\Column(nullable=true)
      *@Assert\File(
      *     maxSize = "1024k",
      *     mimeTypes = {"application/pdf", "image/png", "image/jpeg", "image/svg", "image/jpg"},
@@ -106,16 +106,6 @@ class Pro
      * )
      */
     private $Logo;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ContactPro", mappedBy="ID_Pro", nullable=true)
-     */
-    private $Id_contact_pro;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Avis", mappedBy="Id_Pro")
-     */
-    private $Id_Pro;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
