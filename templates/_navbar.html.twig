@@ -1,33 +1,31 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="#">BricoTravoPro</a>
+        <a class="navbar-brand" href="{{ path('home') }}">BricoTravoPro</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbar">
+            {% set route = app.request.attributes.get('_route') %}
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Accueil</a>
+                <li class="nav-item ">
+                    <a class="nav-link {{ route == 'particulier' ? 'active' }}" href="{{ path('particulier') }}">Particuliers</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="{{ path('particulier') }}">Particuliers</a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="{{ path('professionnel') }}">Professionels</a>
+                    <a class="nav-link {{ route == 'professionnel' ? 'active' }}" href="{{ path('professionnel') }}">Professionels</a>
                 </li>
             </ul>
 
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Inscription</a>
+                    <a class="nav-link {{ route == 'inscription_particulier' ? 'active' }}" href="{{ path('inscription_particulier') }}">Inscription</a>
                 </li>
                 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">Déconnexion</a>
                 {% else %}
-                    <a class="nav-link" href="{{ path('login') }}">Connexion</a>
+                    <a class="nav-link {{ route == 'login' ? 'active' }}" href="{{ path('login') }}">Connexion</a>
                 {% endif %}
                 </li>
             </ul>
