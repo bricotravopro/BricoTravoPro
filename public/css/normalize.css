@@ -4,9 +4,13 @@
 }
 
 .list_activite{
-    color: black;
+    color: #f8f9fa;
 
 }
 #activite{
-    background-color: #4C4848;
+    background-color: #343a40;
+}
+
+#h2o{
+    color: #f8f9fa;
 }
