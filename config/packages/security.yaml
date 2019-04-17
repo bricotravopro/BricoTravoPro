@@ -35,4 +35,8 @@ security:
         App\Entity\Particulier:
             algorithm: bcrypt
             cost: 12
+        App\Entity\Pro:
+            algorithm: bcrypt
+
+
 

@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -161,36 +160,7 @@ class Particulier implements UserInterface, \Serializable
         return $this;
     }
 
-    /**
-     * @return Collection|ContactParticulier[]
-     */
-    public function getIdContactParticulier(): Collection
-    {
-        return $this->Id_contact_particulier;
-    }
 
-    public function addIdContactParticulier(ContactParticulier $idContactParticulier): self
-    {
-        if (!$this->Id_contact_particulier->contains($idContactParticulier)) {
-            $this->Id_contact_particulier[] = $idContactParticulier;
-            $idContactParticulier->setIDParticulier($this);
-        }
-
-        return $this;
-    }
-
-    public function removeIdContactParticulier(ContactParticulier $idContactParticulier): self
-    {
-        if ($this->Id_contact_particulier->contains($idContactParticulier)) {
-            $this->Id_contact_particulier->removeElement($idContactParticulier);
-            // set the owning side to null (unless already changed)
-            if ($idContactParticulier->getIDParticulier() === $this) {
-                $idContactParticulier->setIDParticulier(null);
-            }
-        }
-
-        return $this;
-    }
 
     /**
      * Returns the roles granted to the user.
@@ -208,7 +178,7 @@ class Particulier implements UserInterface, \Serializable
      */
     public function getRoles()
     {
-        return ['ROLE_ADMIN'];
+        return ['ROLE_PARTICULIER'];
     }
 
     /**

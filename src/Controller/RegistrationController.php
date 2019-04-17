@@ -8,15 +8,24 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class RegistrationController extends AbstractController
 {
+
+    private $encoder;
+
+    public function __construct(UserPasswordEncoderInterface $encoder)
+    {
+        $this->encoder = $encoder;
+    }
+
     /**
      * @Route("/inscription/particulier", name="inscription_particulier")
      * @param Request $request
      * @return Response
      */
-    public function UserRegistration(Request $request)
+    public function UserRegistration(Request $request, UserPasswordEncoderInterface $encoder)
     {
         $particulier = new Particulier();
         $form = $this->createForm(RegisterType::class, $particulier);
@@ -24,6 +33,8 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $particulier->setMotDePasse($encoder->encodePassword($particulier, $particulier->getMotDePasse() ));
 
             // Ajouter l'utilisateur en BDD
             $manager = $this->getDoctrine()->getManager();

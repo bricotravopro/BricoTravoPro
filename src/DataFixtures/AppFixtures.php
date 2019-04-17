@@ -72,7 +72,7 @@ class AppFixtures extends Fixture
             $user->setEmail($faker->safeEmail);
             $user->setCGU('1');
             $user->setNewsletter('0');
-            $user->setMotDePasse($faker->password);
+            $user->setMotDePasse($this->encoder->encodePassword($user, 'demopassword'));
             $user->setEmail($faker->safeEmail);
 
             $manager->persist($user);
