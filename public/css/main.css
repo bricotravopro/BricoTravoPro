@@ -3,7 +3,9 @@
 body{
     font-family: 'Slabo 27px', serif;
 }
-
+#banner {
+    width: 100%;
+}
 .icon1{
     width: 80px;
     height: 80px;
