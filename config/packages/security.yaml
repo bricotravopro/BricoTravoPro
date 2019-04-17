@@ -1,18 +1,25 @@
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        from_database:
+        
+        Particulier:
             entity:
                 class: App\Entity\Particulier
                 property: Email
+        Pro:
+            entity:
+                class: App\Entity\Pro
+                property: Email
+        chain_provider:
+            chain:
+                providers: [Particulier, Pro]
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             anonymous: true
-
-
+            provider: chain_provider
             # activate different ways to authenticate
 
             # http_basic: true
