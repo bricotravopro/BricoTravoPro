@@ -101,9 +101,12 @@
         </div>
     </section>
     <!-- Module Call To Action -> Connexion -->
-    <br>
-    {{ include('CallToAction/cta-connexion.html.twig') }}
-    <br>
+    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+        {% else %}
+        <br>
+        {{ include('CallToAction/cta-connexion.html.twig') }}
+        <br>
+    {% endif %}
     <!-- Module Partenaires -->
     <section id="references">
         <h3 class="text-center">Nos partenaires :</h3>
