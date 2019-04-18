@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -27,7 +28,7 @@ class RegisterProType extends AbstractType
             ->add('Telephone', TelType::class)
             ->add('Logo', FileType::class)
             ->add('Email', EmailType::class)
-            ->add('MotDePasse')
+            ->add('MotDePasse', PasswordType::class)
             ->add('SiteWeb')
             ->add('PageFacebook')
             ->add('CGU', CheckboxType::class, [
