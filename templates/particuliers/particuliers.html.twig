@@ -36,8 +36,13 @@
             </div>
         </section>
     </div>
-    <br>
-    {{ include('CallToAction/cta-connexion.html.twig') }}
-    <br>
+    <!-- Module Call To Action -> Connexion -->
+    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+    {% else %}
+        <br>
+        {{ include('CallToAction/cta-connexion.html.twig') }}
+        <br>
+    {% endif %}
+    <!-- Module Partenaires -->
 
 {% endblock %}
