@@ -9,6 +9,7 @@ body{
     padding: 0;
     width: 100%;
 }
+/*ICONEs*/
 .icon1 {
     width: 80px;
     height: 80px;
@@ -20,4 +21,100 @@ body{
     height: 80px;
     border-radius: 40px;
     background-image: linear-gradient(15deg, #13547a 0%, #00aa9e 100%);
+}
+
+/*PAGE CONTACt*/
+.infos{}
+form {}
+/*--> design*/
+.contact select{
+    width: 100% !important;
+    height:35px;
+    line-height:2;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-family: 'texgyreadventorregular', verdana;
+    padding:0 0 0 5px !important;
+}
+.contact input[type="text"], .contact input[type="email"]{
+    height: 34px;
+    line-height: 1;
+}
+.contact label {
+    line-height: 2;
+    display: block;width: 100%;
+}
+.contact option{
+    color:rgb(42, 45, 48);
+    background-color: #fff;
+    font-family: 'texgyreadventorregular', verdana;
+}
+.contact textarea {
+    min-height: 100px;
+}
+.contact input[type="text"], .contact input[type="email"], .contact textarea,.contact select{
+    background:rgba(255,255,255,0) no-repeat 120% center;
+    border:1px solid rgb(42, 45, 48);
+    padding: 5px 0px 5px 5px;
+    font-size: 16px;
+    -webkit-appearance: none;
+    font-family: 'texgyreadventorregular', verdana;
+    color:rgb(42, 45, 48);
+    width:100%;
+    transition:all 0.25s ease-in-out;
+    -webkit-transition:all 0.25s ease-in-out;
+    -moz-transition:all 0.25s ease-in-out;
+}
+/*--> ANTI SPAAAAAm*/
+.contact .url{
+    clear:both;
+    position:absolute;
+    left:-9999px;
+    top:-9999px;
+}
+/*--> validation*/
+.contact input:focus:valid, .contact textarea:focus:valid, .contact select:focus{
+    background:transparent url('../images/valid.png') no-repeat 96% center;
+    border:1px solid rgb(0, 170, 158);
+}
+.contact input:focus:invalid, .contact input.error, .contact textarea.error, .contact textarea:focus:invalid{
+    background:transparent url('../images/invalid.png') no-repeat 96% center;
+    border:1px solid rgb(224,141,30);
+}
+/*--> envoi*/
+.contact .submit{
+    background:transparent;
+    cursor: pointer;
+    margin:10px;
+    width: 200px;
+    height: 100px;
+    font-family: 'texgyreadventorregular', verdana;
+    border:none;
+    text-transform: uppercase;
+    font-size: 120%;
+    color:rgb(42, 45, 48);
+    text-align:right;
+    font-weight: bold;
+}
+.contact .submit:focus:valid{
+    background:transparent !important;
+    border:none !important;
+}
+.contact .submit.loading{
+    text-indent:-9999px;
+    background:transparent;
+}
+.contact .error-message{
+    color:rgb(42, 45, 48);
+    font-size: 14px;
+}
+.success{font-size: 24px;
+    font-size: 2.4rem;
+    width: 100%;
+    max-width:520px;
+    height: 500px;
+    text-align: center;
+    float: left;
+    margin-top: 70px;
 }
