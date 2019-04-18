@@ -1,19 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container-fluid">
-        <div id="banner">
-            <img src="/images/banner_particulier.jpg">
-        </div>
-        <div class="titrage clearfix">
-            <div class="col-lg-12 col-md-12 col-sm-12">
-                <h1 class="info">Pour nous contacter ...</h1>
-            </div>
-        </div>
+    <div class="banner">
+        <img src="/images/banner_contact.jpg" class="img-fluid" alt="Bannière page professionnels">
     </div>
+    <h1 class="info1">Pour nous contacter ...</h1>
     <div class="container">
-        <div class="mwrap clearfix up">
-            <section id="form" class="col-lg-8 col-md-8 col-sm-12">
+        <div class="contact">
+            <section id="form" class="col-12">
                 <form action="inc/envoi.php" method="post" id="ajaxForm">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-12">
@@ -25,43 +19,57 @@
                             <input id="prenom" name="prenom" type="text" placeholder="Votre Prénom" class="auto-clear placeholder" tabindex="2">
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <label for="mail">Email : </label>
-                        <input id="mail" name="mail" type="email" placeholder="Saisissez votre e-mail (obligatoire)" class="auto-clear placeholder" tabindex="4" required>
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <label for="mail">Email : </label>
+                            <input id="mail" name="mail" type="email" placeholder="Saisissez votre e-mail (obligatoire)" class="auto-clear placeholder" tabindex="3" required>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <label for="objet">Objet : </label>
+                            <select id="objet" name="objet" tabindex="4">
+                                <option value="">Objet (obligatoire)</option>
+                                <option value="une demande d'informations">Demande d'informations</option>
+                                <option value="une demande de devis">Demande de partenariat</option>
+                                <option value="une prise de rendez-vous">Demande d'entretien téléphonique</option>
+                                <option value="des informations diverses">Autres</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <label for="objet">Objet : </label>
-                        <select id="objet" name="objet" tabindex="5">
-                            <option value="">Objet (obligatoire)</option>
-                            <option value="une demande d'informations">Demande d'informations</option>
-                            <option value="une demande de devis">Demande de partenariat</option>
-                            <option value="une prise de rendez-vous">Demande d'entretien téléphonique</option>
-                            <option value="des informations diverses">Autres</option>
-                        </select>
+                    <br>
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="message">Message : </label>
+                            <textarea name="message" id="message" cols="80" rows="10" class="autoempty" tabindex="5" placeholder="Votre message  (obligatoire)" required></textarea>
+                        </div>
                     </div>
+                    <br>
                     <div class="url">
                         <label for="url" class="">URL : </label>
-                        <input id="url" class="auto-clear clearfix placeholder" name="url" type="text" placeholder="" tabindex="8">
+                        <input id="url" class="auto-clear clearfix placeholder" name="url" type="text" placeholder="" tabindex="15">
                     </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <label for="message">Message : </label>
-                        <textarea name="message" id="message" cols="38" rows="10" class="autoempty" tabindex="6" placeholder="Votre message  (obligatoire)" required></textarea>
+                    <div class="row">
+                        <div class="col-2 offset-1">
+                            <button type="submit" class="btn btn-outline-info" value="Envoyer" tabindex="6">ENVOYER</button>
+                        </div>
+                        <div class="col-2">
+                            <button type="button" class="btn btn-outline-warning"" value="reset" tabindex="7" href="{{ path('contact') }}">ANNULER</button>
+                        </div>
                     </div>
-                        <input type="submit" value="Envoyer" tabindex="7" class="submit fade_dynamiq right">
                 </form>
             </section>
-            <hr>
-            <!-- iFrame GoogleMap-->
-            <section>
-                <div class="col-12">
-                    <div style="width: 100%">
-                        <iframe width="100%" height="300" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=105%20Avenue%20de%20la%20R%C3%A9publique%2C%2059110%20La%20Madeleine+(BricoTravoPro)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-                            <a href="https://www.maps.ie/map-my-route/">Create route map</a>
-                        </iframe>
-                    </div>
-                </div>
-            </section>
         </div>
+        <hr>
+        <!-- iFrame GoogleMap-->
+        <section id="google-map">
+            <div class="col-12">
+                <div style="width: 100%">
+                    <iframe width="100%" height="300" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=105%20Avenue%20de%20la%20R%C3%A9publique%2C%2059110%20La%20Madeleine+(BricoTravoPro)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                        <a href="https://www.maps.ie/map-my-route/">Create route map</a>
+                    </iframe>
+                </div>
+            </div>
+        </section>
     </div>
 
 

@@ -4,10 +4,31 @@ body{
     font-family: 'Slabo 27px', serif;
 }
 
-#banner{
-    margin: 0;
-    padding: 0;
-    width: 100%;
+#banner1{
+    border-top: 2px solid #e08d1e ;
+}
+#banner2{
+    border-top: 2px solid #00aa9e;
+}
+
+/*TITREs PAGEs*/
+.info1{
+    padding-top: 20px;
+    height: 83px;
+    font-size: 32px;
+    background-color: #4c4848;
+    text-align: center;
+    color: #ffffff;
+    border-bottom: 7px solid #e08d1e;
+}
+.info2{
+    padding-top: 20px;
+    height: 83px;
+    font-size: 32px;
+    background-color: #4c4848;
+    text-align: center;
+    color: #ffffff;
+    border-bottom: 7px solid #00aa9e;
 }
 
 /*ICONEs*/
@@ -25,8 +46,9 @@ body{
 }
 
 /*PAGE CONTACt*/
-.infos{}
-form{}
+.contact{
+    margin-top: 10px;
+}
 /*--> design*/
 .contact select{
     width: 100% !important;
@@ -119,4 +141,20 @@ form{}
     text-align: center;
     float: left;
     margin-top: 70px;
+}
+
+/*FOOTEr*/
+#google-map{
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+/*CADREs PAGEs FOOTEr*/
+#docs{
+    margin-top: 52px;
+    margin-bottom: 52px;
+    width: 800px;
+    border: 1px solid #313131;
+    border-radius: 10px;
+    box-shadow: 6px 6px 6px black
 }
