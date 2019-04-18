@@ -64,14 +64,4 @@ class ContactController extends AbstractController
             'form' => $form->createView()
         ]);
     }
-
-    /**
-     * @Route("/contact-mail", name="contact")
-     * @param Request $request
-     * @return Response
-     */
-    public function Contact(Request $request)
-    {
-
-    }
 }
