@@ -16,4 +16,5 @@ class ContactMailController extends AbstractController
     public function Qsn()
     {
         return $this->render('contact/contact-mail.html.twig');
+    }
 }
