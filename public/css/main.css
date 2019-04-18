@@ -4,13 +4,14 @@ body{
     font-family: 'Slabo 27px', serif;
 }
 
-#banner {
+#banner{
     margin: 0;
     padding: 0;
     width: 100%;
 }
+
 /*ICONEs*/
-.icon1 {
+.icon1{
     width: 80px;
     height: 80px;
     border-radius: 40px;
@@ -25,7 +26,7 @@ body{
 
 /*PAGE CONTACt*/
 .infos{}
-form {}
+form{}
 /*--> design*/
 .contact select{
     width: 100% !important;
@@ -41,7 +42,7 @@ form {}
     height: 34px;
     line-height: 1;
 }
-.contact label {
+.contact label{
     line-height: 2;
     display: block;width: 100%;
 }
@@ -50,10 +51,11 @@ form {}
     background-color: #fff;
     font-family: 'texgyreadventorregular', verdana;
 }
-.contact textarea {
+.contact textarea{
+    width: 90%;
     min-height: 100px;
 }
-.contact input[type="text"], .contact input[type="email"], .contact textarea,.contact select{
+.contact input[type="text"], .contact input[type="email"], .contact textarea, .contact select{
     background:rgba(255,255,255,0) no-repeat 120% center;
     border:1px solid rgb(42, 45, 48);
     padding: 5px 0px 5px 5px;
