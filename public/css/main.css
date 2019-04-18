@@ -4,10 +4,11 @@ body{
     font-family: 'Slabo 27px', serif;
 }
 
-#banner{
-    margin: 0;
-    padding: 0;
-    width: 100%;
+#banner1{
+    border-top: 2px solid #e08d1e ;
+}
+#banner2{
+    border-top: 2px solid #00aa9e;
 }
 
 /*TITREs PAGEs*/
