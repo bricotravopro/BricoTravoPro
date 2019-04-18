@@ -3,10 +3,10 @@
  * Configuration del'envoi
  **/
 $conf = array(
-    'success' => 'Votre mail s&#39;est bien envoyé !',
+    'success' => 'Votre mail est bien envoyé !',
     'errname' => 'Vous devez entrer un nom',
     'errmail' => 'Vous devez entrer un email valide',
-    'errobjet' => 'Attention ! Vous devez choisir un objet',
+    'errobjet' => 'Vous devez choisir un objet',
     'errmessage' => 'Vous devez entrer un message',
     'to' => 'contact@bricotravopro.fr',
     'copie' => 'teddy@tdipointcom.fr',
