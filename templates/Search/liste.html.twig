@@ -1,0 +1,5 @@
+{% for activite in activites %}
+  <ul>
+  <li><a href="{{ path('SecteurActivite', { 'id' : activite.id} ) }}">{{ activite.nom }}</a></li>
+  </ul>
+{% endfor %}

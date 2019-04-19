@@ -11,22 +11,30 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class SecteurActiviteController extends AbstractController
 {
-    /**
-     * @Route("/secteuractivité", name="SecteurActivite")
-     * @return Response
-     */
+//    fonction pour afficher les secteurs d'activités sur la page d'acceuil
+
     public function showAllActivite(){
         $entityManager = $this->getDoctrine()->getManager();
-        $activite = $entityManager->getRepository(SecteurActivite::class)->findAll();
+        $activites = $entityManager->getRepository(SecteurActivite::class)->findAll();
 
-// On exécute la requête
-        $entityManager->flush();
-
-        return $this->render('Search/SecteurActivite.html.twig',[
-
+        return $this->render('Search/liste.html.twig',[
+            'activites'=> $activites
         ]);
     }
 
+//    fonction pour afficher la page correspondante au secteur d'activité selectionné (clic)
+    /**
+     * @Route("/secteuractivité/{id}", name="SecteurActivite")
+     * @return Response
+     */
+    public function pageActivite($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $activite = $em->getRepository(SecteurActivite::class)->find($id);
 
+        return $this->render('Search/SecteurActivite.html.twig',[
+            'activite'=> $activite,
+        ]);
+    }
 
 }
