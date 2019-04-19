@@ -1,12 +1,62 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container-fluid">
-        <img src="/images/banner_blog.jpg">
+    <div id="banner1">
+        <img src="/images/banner_blog.jpg" class="img-fluid" alt="Bannière page professionnels">
     </div>
+    <h1 class="info1">Pour rester informé ...</h1>
     <div class="container">
         <div class="row">
-            <h1>Restez informés</h1>
+            <div class="col-2">
+                <img src="/images/logo_qualibat.jpg">
+            </div>
+            <div class="col-10"
+                <p>Les labels de qualification et de certification Qualibat permettent d'identifier les acteurs de confiance du secteur du bâtiment. Les qualifications sont délivrées en toute indépendance par des professionnels experts du bâtiment, issus<br>
+                    de différents horizons et métiers (artisans, promoteurs, bailleurs sociaux, collectivités locales, architectes, bureaux d’études, etc.) tous bénévoles, œuvrant en toute objectivité.</p>
+                <p>L’attribution de ces qualifications et certifications implique un jugement de valeur sur la compétence technique des entreprises, basé sur des référentiels précis, selon la spécialité ou le degré de technicité visé.</p>
+            </div>
         </div>
+        <div class="embedresize">
+            <div>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/jx9e-GYgTh0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="col-12">
+            <span class="text-center">Pour en savoir + :<a href="https://www.qualibat.com/" target="_blank"> qualibat.com</a></span>
+        </div>
+        <br>
+        <hr>
+        <div class="row">
+            <div class="col-2">
+                <img src="/images/logo_rge.jpg">
+            </div>
+            <div class="col-10"
+                <p>Les professionnels RGE ont suivi une formation et s’engagent à respecter une charte de qualité. Faire appel à l’un d’entre eux est obligatoire pour  bénéficier d’aides financières.
+                    De plus, cela pourra vous éviter toute déconvenue avec des professionnels aux méthodes non conformes à la réglementation en vigueur.</p>
+                <p>Pour la rénovation de votre habitat et son amélioration thermique, profitez d'aides financières publiques telles que le Crédit d’Impôt Transition Energétique ou l’Eco-PTZ.</p>
+                <p>Le bâtiment est le secteur le plus énergivore en France. Il représente 46% de la consommation énergétique finale française, émettant annuellement 123 millions de tonnes de CO2.</p>
+            </div>
+        </div>
+        <div class="col-12">
+            <span class="text-center">Pour en savoir + :<a href="http://www.eco-artisan.net/" target="_blank"> eco-artisan.net</a></span>
+        </div>
+        <br>
+        <hr>
+    <div class="row">
+        <div class="col-2">
+            <img src="/images/1€.png">
+        </div>
+        <div class="col-10"
+        <p>L’isolation des combles est un choix de rénovation énergétique à prioriser. En effet, jusqu’à 30 % des pertes de chaleur se font par la toiture. Cette isolation est donc celle qui permet<br>
+            de faire le plus d’économies d’énergie pour un faible coût, de l'ordre de 53 €/m², ce qui en fait une solution très vite rentabilisée.</p>
+        <p>Des aides pour réduire considérablement votre investissement : crédit d’impôt à 30%, Pacte Energie Solidarité, Prime Quelle Energie et TVA à 5,5%.</p>
     </div>
+    </div>
+    <div class="col-12">
+        <span class="text-center">Pour en savoir + :<a href="https://www.quelleenergie.fr/economies-energie/isolation-combles/" target="_blank"> quelleenergie.fr</a></span>
+    </div>
+
+    </div>
+
+
 {% endblock %}
