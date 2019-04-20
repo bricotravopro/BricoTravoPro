@@ -11,6 +11,7 @@ class ContactMailController extends AbstractController
 {
     /**
      * @Route("/contact-mail", name="contact")
+     * @param Request $request
      * @return Response
      */
     public function Qsn()

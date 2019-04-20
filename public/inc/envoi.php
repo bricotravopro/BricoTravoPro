@@ -1,6 +1,6 @@
 <?php
 /**
- * Configuration del'envoi
+ * Configuration de l'envoi
  **/
 $conf = array(
     'success' => 'Votre mail est bien envoyé !',
