@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 class RegistrationProController extends AbstractController
 {
     /**
-     * @Route("/inscription/professionnel", name="inscription_professionnel")
+     * @Route("/inscription/professionel", name="inscription_professionel")
      * @param Request $request
      * @return Response
      */

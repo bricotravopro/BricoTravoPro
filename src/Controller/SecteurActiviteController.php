@@ -3,7 +3,6 @@
 
 namespace App\Controller;
 
-
 use App\Entity\SecteurActivite;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -38,3 +37,5 @@ class SecteurActiviteController extends AbstractController
     }
 
 }
+
+

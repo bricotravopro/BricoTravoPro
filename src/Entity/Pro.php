@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Serializable;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -16,7 +17,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @UniqueEntity(fields={"Email"}, message="cet email est déjà connu !")
  * @UniqueEntity(fields={"Entreprise"}, message="cette entreprise est déjà connu !")
  */
-class Pro implements UserInterface, \Serializable
+class Pro implements UserInterface, Serializable
 {
     /**
      * @ORM\Id()
