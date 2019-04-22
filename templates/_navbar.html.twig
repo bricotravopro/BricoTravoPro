@@ -1,7 +1,9 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="{{ path('home') }}">BricoTravoPro</a>
+        <a class="icon3 my-4 mx-auto" href="{{ path('home') }}">
+            <img src="/images/logo_bricotravopro_general.svg" alt="logo BricoTravoPro" >
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -13,7 +15,7 @@
                     <a class="nav-link {{ route == 'particulier' ? 'active' }}" href="{{ path('particulier') }}">Particuliers</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link {{ route == 'professionnel' ? 'active' }}" href="{{ path('professionnel') }}">Professionels</a>
+                    <a class="nav-link {{ route == 'professionnel' ? 'active' }}" href="{{ path('professionnel') }}">Professionnels</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -24,7 +26,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">Déconnexion</a>
                 {% else %}
-                    <a class="nav-link {{ route == 'inscription_particulier' ? 'active' }}" href="{{ path('inscription_particulier') }}">Inscription</a>
+                    <a class="nav-link {{ route == 'inscription_particulier' ? 'active' }}" href="{{ path('inscription_particulier') }}">Inscription particulier</a>
+                    <a class="nav-link {{ route == 'inscription_professionnel' ? 'active' }}" href="{{ path('inscription_professionnel') }}">Inscription professionnel</a>
                     <a class="nav-link {{ route == 'login' ? 'active' }}" href="{{ path('login') }}">Connexion</a>
                 {% endif %}
                 </li>

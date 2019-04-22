@@ -19,7 +19,7 @@
                 <img src="/images/slide3.jpg" class="d-block w-100" alt="slide3">
             </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
@@ -28,11 +28,39 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+
+    <!-- End Slider-banner -->
+
+    <!-- Block recherche-->
     <div class="container">
         <h3  class="recherche col-6 offset-3 text-center"> Trouver un artisan près de chez vous. </h3>
         <p class="col-12">Une fuite, une chaudière à changer ou encore des travaux d'économies d'énergie à entreprendre, les artisans de BricoTravoPro sont là pour vous accompagner dans votre démarche.<br>
             Grâce à un moteur de recherche multicritères, vous pouvez trouver un professionnel, géo-localisable près de chez vous, capable de répondre à vos besoins spécifiques.</p>
     </div>
+    <div class="container-fluid">
+
+    <div class="jumbotron">
+        <div class="container">
+            {{ form_start(search_form) }}
+            <div class="form-row align-items-end">
+                <div class="col">
+                    {{ form_row(search_form.SecteurActivite) }}
+                </div>
+                <div class="col">
+                    {{ form_row(search_form.CP) }}
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <button class="btn btn-primary">Recherche</button>
+                    </div>
+                </div>
+            </div>
+            {{ form_end(search_form) }}
+        </div>
+    </div>
+
+    <!-- End Block recherche-->
+
     <div class="container-fluid" >
         <div class="row">
             <div class="col-7" id="activite" >
