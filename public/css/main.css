@@ -45,6 +45,29 @@ body{
     background-image: linear-gradient(15deg, #13547a 0%, #00aa9e 100%);
 }
 
+
+/* PAGE QUI SOMME NOUs */
+#t1{
+    width: 750px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+#t2{
+    width: 750px;
+    margin-bottom: 30px;
+}
+
+.team{
+    margin-top: 15px;
+    width: 20%;
+}
+.photo-circle{
+    width:120px;
+    height:120px;
+    border-radius:60px;
+    border: 2px solid #ff5858;
+
 .icon3{
     width: 80px;
     border-radius: 40px;
