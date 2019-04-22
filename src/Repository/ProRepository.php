@@ -19,22 +19,25 @@ class ProRepository extends ServiceEntityRepository
         parent::__construct($registry, Pro::class);
     }
 
-    // /**
-    //  * @return Pro[] Returns an array of Pro objects
-    //  */
-    /*
-    public function findByExampleField($value)
+
+     /**
+      * @return Pro[] Returns an array of Pro objects
+      */
+
+    public function rechercheArtisan($criteres)
     {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.CP = :CP')
+            ->setParameter('CP', $criteres['CP'])
+            ->andWhere('c.SecteurActivite = :SecteurActivite')
+            ->setParameter('SecteurActivite', $criteres['SecteurActivite'])
+            ->orderBy('c.id', 'ASC')
+            ->setMaxResults(12)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Pro
