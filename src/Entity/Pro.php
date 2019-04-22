@@ -131,10 +131,14 @@ class Pro implements UserInterface, Serializable
      */
     private $Ville;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Avis", mappedBy="Id_Pro", cascade={"persist", "remove"})
+     */
+    private $AvisObtenu;
+
     public function __construct()
     {
         $this->Id_contact_pro = new ArrayCollection();
-        $this->Id_Pro = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -285,6 +289,23 @@ class Pro implements UserInterface, Serializable
 
         return $this;
     }
+    
+    public function getAvisObtenu(): ?Avis
+    {
+        return $this->AvisObtenu;
+    }
+
+    public function setAvisObtenu(Avis $AvisObtenu): self
+    {
+        $this->AvisObtenu = $AvisObtenu;
+
+        // set the owning side of the relation if necessary
+        if ($this !== $AvisObtenu->getIdPro()) {
+            $AvisObtenu->setIdPro($this);
+        }
+
+        return $this;
+    }
 
     /**
      * @return Collection|ContactPro[]
@@ -311,37 +332,6 @@ class Pro implements UserInterface, Serializable
             // set the owning side to null (unless already changed)
             if ($idContactPro->getIDPro() === $this) {
                 $idContactPro->setIDPro(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Avis[]
-     */
-    public function getIdPro(): Collection
-    {
-        return $this->Id_Pro;
-    }
-
-    public function addIdPro(Avis $idPro): self
-    {
-        if (!$this->Id_Pro->contains($idPro)) {
-            $this->Id_Pro[] = $idPro;
-            $idPro->setIdPro($this);
-        }
-
-        return $this;
-    }
-
-    public function removeIdPro(Avis $idPro): self
-    {
-        if ($this->Id_Pro->contains($idPro)) {
-            $this->Id_Pro->removeElement($idPro);
-            // set the owning side to null (unless already changed)
-            if ($idPro->getIdPro() === $this) {
-                $idPro->setIdPro(null);
             }
         }
 

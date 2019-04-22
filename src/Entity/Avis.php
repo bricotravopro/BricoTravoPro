@@ -37,16 +37,16 @@ class Avis
     private $Date;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Particulier", inversedBy="Id_Particulier")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $Id_Particulier;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Pro", inversedBy="Id_Pro")
+     * @ORM\OneToOne(targetEntity="App\Entity\Pro", inversedBy="AvisObtenu", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $Id_Pro;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Particulier", inversedBy="AvisLaisse", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $Id_Particulier;
 
     public function getId(): ?int
     {
@@ -101,26 +101,26 @@ class Avis
         return $this;
     }
 
-    public function getIdParticulier(): ?Particulier
-    {
-        return $this->Id_Particulier;
-    }
-
-    public function setIdParticulier(?Particulier $Id_Particulier): self
-    {
-        $this->Id_Particulier = $Id_Particulier;
-
-        return $this;
-    }
-
     public function getIdPro(): ?Pro
     {
         return $this->Id_Pro;
     }
 
-    public function setIdPro(?Pro $Id_Pro): self
+    public function setIdPro(Pro $Id_Pro): self
     {
         $this->Id_Pro = $Id_Pro;
+
+        return $this;
+    }
+
+    public function getIdParticulier(): ?Particulier
+    {
+        return $this->Id_Particulier;
+    }
+
+    public function setIdParticulier(Particulier $Id_Particulier): self
+    {
+        $this->Id_Particulier = $Id_Particulier;
 
         return $this;
     }

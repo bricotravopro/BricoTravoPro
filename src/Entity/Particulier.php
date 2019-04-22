@@ -65,6 +65,11 @@ class Particulier implements UserInterface, \Serializable
      */
     private $Ville;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Avis", mappedBy="Id_Particulier", cascade={"persist", "remove"})
+     */
+    private $AvisLaisse;
+
     public function __construct()
     {
         $this->isActive = true;
@@ -253,5 +258,22 @@ class Particulier implements UserInterface, \Serializable
             $this->Email,
             $this->MotDePasse
             ) = unserialize($serialized, ['allowed_classes' => false]);
+    }
+
+    public function getAvisLaisse(): ?Avis
+    {
+        return $this->AvisLaisse;
+    }
+
+    public function setAvisLaisse(Avis $AvisLaisse): self
+    {
+        $this->AvisLaisse = $AvisLaisse;
+
+        // set the owning side of the relation if necessary
+        if ($this !== $AvisLaisse->getIdParticulier()) {
+            $AvisLaisse->setIdParticulier($this);
+        }
+
+        return $this;
     }
 }
