@@ -132,13 +132,14 @@ class Pro implements UserInterface, Serializable
     private $Ville;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Avis", mappedBy="Id_Pro", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="App\Entity\Avis", mappedBy="Id_Pro")
      */
     private $AvisObtenu;
 
     public function __construct()
     {
         $this->Id_contact_pro = new ArrayCollection();
+        $this->AvisObtenu = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -286,23 +287,6 @@ class Pro implements UserInterface, Serializable
     public function setLogo(File $file)
     {
         $this->Logo = $file;
-
-        return $this;
-    }
-    
-    public function getAvisObtenu(): ?Avis
-    {
-        return $this->AvisObtenu;
-    }
-
-    public function setAvisObtenu(Avis $AvisObtenu): self
-    {
-        $this->AvisObtenu = $AvisObtenu;
-
-        // set the owning side of the relation if necessary
-        if ($this !== $AvisObtenu->getIdPro()) {
-            $AvisObtenu->setIdPro($this);
-        }
 
         return $this;
     }
@@ -482,5 +466,36 @@ class Pro implements UserInterface, Serializable
     public function eraseCredentials()
     {
         // TODO: Implement eraseCredentials() method.
+    }
+
+    /**
+     * @return Collection|Avis[]
+     */
+    public function getAvisObtenu(): Collection
+    {
+        return $this->AvisObtenu;
+    }
+
+    public function addAvisObtenu(Avis $avisObtenu): self
+    {
+        if (!$this->AvisObtenu->contains($avisObtenu)) {
+            $this->AvisObtenu[] = $avisObtenu;
+            $avisObtenu->setIdPro($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAvisObtenu(Avis $avisObtenu): self
+    {
+        if ($this->AvisObtenu->contains($avisObtenu)) {
+            $this->AvisObtenu->removeElement($avisObtenu);
+            // set the owning side to null (unless already changed)
+            if ($avisObtenu->getIdPro() === $this) {
+                $avisObtenu->setIdPro(null);
+            }
+        }
+
+        return $this;
     }
 }

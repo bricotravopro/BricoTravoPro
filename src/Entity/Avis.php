@@ -10,13 +10,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Avis
 {
     /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $Email;
@@ -27,7 +20,7 @@ class Avis
     private $Note;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $Commentaire;
 
@@ -37,13 +30,15 @@ class Avis
     private $Date;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Pro", inversedBy="AvisObtenu", cascade={"persist", "remove"})
+     * @ORM\Id()
+     * @ORM\ManyToOne(targetEntity="App\Entity\Pro", inversedBy="AvisObtenu")
      * @ORM\JoinColumn(nullable=false)
      */
     private $Id_Pro;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Particulier", inversedBy="AvisLaisse", cascade={"persist", "remove"})
+     * @ORM\Id()
+     * @ORM\ManyToOne(targetEntity="App\Entity\Particulier", inversedBy="AvisLaisse")
      * @ORM\JoinColumn(nullable=false)
      */
     private $Id_Particulier;
@@ -106,7 +101,7 @@ class Avis
         return $this->Id_Pro;
     }
 
-    public function setIdPro(Pro $Id_Pro): self
+    public function setIdPro(?Pro $Id_Pro): self
     {
         $this->Id_Pro = $Id_Pro;
 
@@ -118,7 +113,7 @@ class Avis
         return $this->Id_Particulier;
     }
 
-    public function setIdParticulier(Particulier $Id_Particulier): self
+    public function setIdParticulier(?Particulier $Id_Particulier): self
     {
         $this->Id_Particulier = $Id_Particulier;
 

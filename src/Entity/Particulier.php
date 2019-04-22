@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -66,7 +67,7 @@ class Particulier implements UserInterface, \Serializable
     private $Ville;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Avis", mappedBy="Id_Particulier", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="App\Entity\Avis", mappedBy="Id_Particulier")
      */
     private $AvisLaisse;
 
@@ -74,6 +75,7 @@ class Particulier implements UserInterface, \Serializable
     {
         $this->isActive = true;
         $this->roles = ['ROLE_USER'];
+        $this->AvisLaisse = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -260,18 +262,32 @@ class Particulier implements UserInterface, \Serializable
             ) = unserialize($serialized, ['allowed_classes' => false]);
     }
 
-    public function getAvisLaisse(): ?Avis
+    /**
+     * @return Collection|Avis[]
+     */
+    public function getAvisLaisse(): Collection
     {
         return $this->AvisLaisse;
     }
 
-    public function setAvisLaisse(Avis $AvisLaisse): self
+    public function addAvisLaisse(Avis $avisLaisse): self
     {
-        $this->AvisLaisse = $AvisLaisse;
+        if (!$this->AvisLaisse->contains($avisLaisse)) {
+            $this->AvisLaisse[] = $avisLaisse;
+            $avisLaisse->setIdParticulier($this);
+        }
 
-        // set the owning side of the relation if necessary
-        if ($this !== $AvisLaisse->getIdParticulier()) {
-            $AvisLaisse->setIdParticulier($this);
+        return $this;
+    }
+
+    public function removeAvisLaisse(Avis $avisLaisse): self
+    {
+        if ($this->AvisLaisse->contains($avisLaisse)) {
+            $this->AvisLaisse->removeElement($avisLaisse);
+            // set the owning side to null (unless already changed)
+            if ($avisLaisse->getIdParticulier() === $this) {
+                $avisLaisse->setIdParticulier(null);
+            }
         }
 
         return $this;
