@@ -468,34 +468,31 @@ class Pro implements UserInterface, Serializable
         // TODO: Implement eraseCredentials() method.
     }
 
-    /**
-     * @return Collection|Avis[]
-     */
-    public function getAvisObtenu(): Collection
+
+
+
+
+    public function getAbsolutePath()
     {
-        return $this->AvisObtenu;
+        return null === $this->Logo
+            ? null
+            : $this->getUploadRootDir().'/'.$this->Logo;
     }
 
-    public function addAvisObtenu(Avis $avisObtenu): self
+    public function getWebPath()
     {
-        if (!$this->AvisObtenu->contains($avisObtenu)) {
-            $this->AvisObtenu[] = $avisObtenu;
-            $avisObtenu->setIdPro($this);
-        }
-
-        return $this;
+        return null === $this->Logo
+            ? null
+            : $this->getUploadDir().'/'.$this->Logo;
     }
 
-    public function removeAvisObtenu(Avis $avisObtenu): self
+    protected function getUploadRootDir()
     {
-        if ($this->AvisObtenu->contains($avisObtenu)) {
-            $this->AvisObtenu->removeElement($avisObtenu);
-            // set the owning side to null (unless already changed)
-            if ($avisObtenu->getIdPro() === $this) {
-                $avisObtenu->setIdPro(null);
-            }
-        }
+        return __DIR__.'../public/logosArtisans/'.$this->getUploadDir();
+    }
 
-        return $this;
+    protected function getUploadDir()
+    {
+        return 'uploads/documents';
     }
 }
