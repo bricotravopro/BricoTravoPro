@@ -95,7 +95,6 @@ class Pro implements UserInterface, Serializable
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
-     * @var string The hashed password
      * @Assert\Length(min="6", max="32")
      */
     private $MotDePasse;
