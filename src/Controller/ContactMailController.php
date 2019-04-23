@@ -3,18 +3,17 @@
 
 namespace App\Controller;
 
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Response;
 
-class ContactMailController extends AbstractController
+class ContactMailController
 {
     /**
-     * @Route("/contact-mail", name="contact")
-     * @param Request $request
+     * @Route("/contact-mail", name="contact-mail")
      * @return Response
      */
-    public function Qsn()
+    public function contact()
     {
         return $this->render('contact/contact-mail.html.twig');
     }
