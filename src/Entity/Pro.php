@@ -75,14 +75,14 @@ class Pro implements UserInterface, Serializable
     private $Telephone;
 
     /**
-     * @ORM\Column(type="string", length=255,unique=true)
+     * @ORM\Column(type="string", length=255)
      * @Assert\Email()
      * @Assert\NotBlank
      */
     private $Email;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $SiteWeb;
 
@@ -95,6 +95,7 @@ class Pro implements UserInterface, Serializable
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
+     * @var string The hashed password
      * @Assert\Length(min="6", max="32")
      */
     private $MotDePasse;
@@ -131,10 +132,15 @@ class Pro implements UserInterface, Serializable
      */
     private $Ville;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Avis", mappedBy="Id_Pro")
+     */
+    private $AvisObtenu;
+
     public function __construct()
     {
         $this->Id_contact_pro = new ArrayCollection();
-        $this->Id_Pro = new ArrayCollection();
+        $this->AvisObtenu = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -317,37 +323,6 @@ class Pro implements UserInterface, Serializable
         return $this;
     }
 
-    /**
-     * @return Collection|Avis[]
-     */
-    public function getIdPro(): Collection
-    {
-        return $this->Id_Pro;
-    }
-
-    public function addIdPro(Avis $idPro): self
-    {
-        if (!$this->Id_Pro->contains($idPro)) {
-            $this->Id_Pro[] = $idPro;
-            $idPro->setIdPro($this);
-        }
-
-        return $this;
-    }
-
-    public function removeIdPro(Avis $idPro): self
-    {
-        if ($this->Id_Pro->contains($idPro)) {
-            $this->Id_Pro->removeElement($idPro);
-            // set the owning side to null (unless already changed)
-            if ($idPro->getIdPro() === $this) {
-                $idPro->setIdPro(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function getPageFacebook(): ?string
     {
         return $this->PageFacebook;
@@ -492,5 +467,36 @@ class Pro implements UserInterface, Serializable
     public function eraseCredentials()
     {
         // TODO: Implement eraseCredentials() method.
+    }
+
+    /**
+     * @return Collection|Avis[]
+     */
+    public function getAvisObtenu(): Collection
+    {
+        return $this->AvisObtenu;
+    }
+
+    public function addAvisObtenu(Avis $avisObtenu): self
+    {
+        if (!$this->AvisObtenu->contains($avisObtenu)) {
+            $this->AvisObtenu[] = $avisObtenu;
+            $avisObtenu->setIdPro($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAvisObtenu(Avis $avisObtenu): self
+    {
+        if ($this->AvisObtenu->contains($avisObtenu)) {
+            $this->AvisObtenu->removeElement($avisObtenu);
+            // set the owning side to null (unless already changed)
+            if ($avisObtenu->getIdPro() === $this) {
+                $avisObtenu->setIdPro(null);
+            }
+        }
+
+        return $this;
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -55,6 +56,7 @@ class Particulier implements UserInterface, \Serializable
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
+     * @var string The hashed password
      * @Assert\Length(min="6", max="32")
      */
     private $MotDePasse;
@@ -65,10 +67,16 @@ class Particulier implements UserInterface, \Serializable
      */
     private $Ville;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Avis", mappedBy="Id_Particulier")
+     */
+    private $AvisLaisse;
+
     public function __construct()
     {
         $this->isActive = true;
         $this->roles = ['ROLE_USER'];
+        $this->AvisLaisse = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -253,5 +261,36 @@ class Particulier implements UserInterface, \Serializable
             $this->Email,
             $this->MotDePasse
             ) = unserialize($serialized, ['allowed_classes' => false]);
+    }
+
+    /**
+     * @return Collection|Avis[]
+     */
+    public function getAvisLaisse(): Collection
+    {
+        return $this->AvisLaisse;
+    }
+
+    public function addAvisLaisse(Avis $avisLaisse): self
+    {
+        if (!$this->AvisLaisse->contains($avisLaisse)) {
+            $this->AvisLaisse[] = $avisLaisse;
+            $avisLaisse->setIdParticulier($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAvisLaisse(Avis $avisLaisse): self
+    {
+        if ($this->AvisLaisse->contains($avisLaisse)) {
+            $this->AvisLaisse->removeElement($avisLaisse);
+            // set the owning side to null (unless already changed)
+            if ($avisLaisse->getIdParticulier() === $this) {
+                $avisLaisse->setIdParticulier(null);
+            }
+        }
+
+        return $this;
     }
 }
