@@ -28,6 +28,14 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
+            <div id="carouselButtons">
+                <button id="playButton" type="button" class="btn btn-default btn-xs">
+                    <span class="glyphicon glyphicon-play"></span>
+                </button>
+                <button id="pauseButton" type="button" class="btn btn-default btn-xs">
+                    <span class="glyphicon glyphicon-pause"></span>
+                </button>
+            </div>
         </div>
         <!-- End Slider-banner -->
     </div>
@@ -120,7 +128,9 @@
     {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
         {% else %}
         <br>
+    <div id="banner1" style="border-bottom: 1px solid #ff5858">
         {{ include('CallToAction/cta-connexion.html.twig') }}
+    </div>
         <br>
     {% endif %}
     <!-- Module Partenaires -->
@@ -176,7 +186,9 @@
     </section>
     <!-- Module Call To Action -> Newsletter -->
     <br>
+    <div id="banner1" style="border-bottom: 1px solid #ff5858">
     {{ include('CallToAction/cta-newsletter.html.twig') }}
+    </div>
     <br>
     <!-- Module Call To Action -> BackToTop -->
     <br>
