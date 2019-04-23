@@ -40,11 +40,6 @@ body{
 }
 
 /* CAROUSEl & BANNIEREs */
-.carousel-inner{
-    border-top: 2px solid #ff5858;
-    border-bottom: 1px solid #ff5858;
-}
-
 #banner1{
     border-top: 2px solid #ff5858 ;
 }
