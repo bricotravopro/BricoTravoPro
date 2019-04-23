@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\Particulier;
+use App\Entity\EmailNewsletter;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -18,5 +18,4 @@ class NewsletterRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, EmailNewsletter::class);
     }
-
 }
