@@ -1,12 +1,12 @@
-{# http://127.0.0.1:8000/avis/particulier/{id} #}
+{# http://127.0.0.1:8000/avis/particulier/{21} #}
 {% extends 'base.html.twig' %}
 
 {% block body %}
 
-    <form>
-        <div class="form-row">
-            <label for="inputid">Identifiant</label>
-            <input type="number" class="form-control" id="inputAddress2" placeholder="Identifiant">
+    <form class="container">
+        <div class="form-group">
+            <label>identifiant</label>
+            <input type="text" class="form-control" placeholder="identifiant">
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -21,8 +21,6 @@
         <div class="form-group">
             <label for="inputAddress">Addresse</label>
             <input type="text" class="form-control" id="inputAddress" placeholder="01 rue de Paris">
-        </div>
-        <div class="form-group">
             <label for="inputAddress2">Complement d'adresse</label>
             <input type="text" class="form-control" id="inputAddress2" placeholder="Apartement, studio, Bis, Ter">
         </div>
@@ -42,6 +40,14 @@
                 <label for="inputZip">Code Postal</label>
                 <input type="text" class="form-control" id="Code postal">
             </div>
+        </div>
+        <div class="form-group">
+            <label>Commentaires</label>
+            <textarea class="form-control"  rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Ajouter photo</label>
+            <input type="file" class="form-control-file">
         </div>
         <button type="submit" class="btn btn-primary">Envoi</button>
     </form>
