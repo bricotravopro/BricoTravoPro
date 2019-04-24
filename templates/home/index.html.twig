@@ -65,7 +65,7 @@
         <div class="container">
         <div class="row">
         {% for artisan in artisans %}
-                    <div class="col-6 col-md-3 mx-4">
+                    <div class="col-6 col-md-3 mx-4 my-2">
                         <div class="card" style="width:20rem; height:15rem">
                             <div class="card-body">
                                 <h5 class="card-title">{{ artisan.Entreprise }}</h5>
@@ -84,6 +84,7 @@
         </div>
     </section>
     {% else %}
+        Aucun artisan disponible, désolé
     {% endif  %}
 
 
