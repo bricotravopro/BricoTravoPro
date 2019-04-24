@@ -14,10 +14,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class RechercheController extends AbstractController
 {
     /**
-     * @Route ("/", name="home")
-     * @param Request $request
-     * @param ProRepository $ProRepository
-     * @return Response
+
+     * @Route ("/search", name="search")
+
      */
     public function RechercheArtisan(Request $request, ProRepository $ProRepository)
     {

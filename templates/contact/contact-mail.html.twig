@@ -1,62 +1,26 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="banner">
+    <div id="banner1">
         <img src="/images/banner_contact.jpg" class="img-fluid" alt="Bannière page professionnels">
     </div>
     <h1 class="info1">Pour nous contacter ...</h1>
     <div class="container">
         <div class="contact">
             <section id="form" class="col-12">
-                <form action="inc/envoi.php" method="post" id="ajaxForm">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label for="name">NOM : </label>
-                            <input id="name" name="name" type="text" placeholder="Votre Nom (obligatoire)" class="auto-clear placeholder" tabindex="1" required>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label for="prenom">Prénom : </label>
-                            <input id="prenom" name="prenom" type="text" placeholder="Votre Prénom" class="auto-clear placeholder" tabindex="2">
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label for="mail">Email : </label>
-                            <input id="mail" name="mail" type="email" placeholder="Saisissez votre e-mail (obligatoire)" class="auto-clear placeholder" tabindex="3" required>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label for="objet">Objet : </label>
-                            <select id="objet" name="objet" tabindex="4">
-                                <option value="">Objet (obligatoire)</option>
-                                <option value="une demande d'informations">Demande d'informations</option>
-                                <option value="une demande de devis">Demande de partenariat</option>
-                                <option value="une prise de rendez-vous">Demande d'entretien téléphonique</option>
-                                <option value="des informations diverses">Autres</option>
-                            </select>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-12">
-                            <label for="message">Message : </label>
-                            <textarea name="message" id="message" cols="80" rows="10" class="autoempty" tabindex="5" placeholder="Votre message  (obligatoire)" required></textarea>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="url">
-                        <label for="url" class="">URL : </label>
-                        <input id="url" class="auto-clear clearfix placeholder" name="url" type="text" placeholder="" tabindex="15">
-                    </div>
-                    <div class="row">
-                        <div class="col-2 offset-1">
-                            <button type="submit" class="btn btn-outline-info" value="Envoyer" tabindex="6">ENVOYER</button>
-                        </div>
-                        <div class="col-2">
-                            <button type="button" class="btn btn-outline-warning" value="reset" tabindex="7" href="{{ path('contact') }}">ANNULER</button>
-                        </div>
-                    </div>
-                </form>
+                {{ form_start(form)}}
+                <div class="row">
+                    <div class="col-6">{{ form_row(form.Nom) }}</div>
+                    <div class="col-6">{{ form_row(form.Prenom) }}</div>
+                    <div class="col-12">{{ form_row(form.Sujet) }}</div>
+                </div>
+
+                {{ form_widget(form) }}
+                <div class="row">
+                    <div class="col-3 offset-2"><button class="btn btn-outline-primary">Envoyer</button></div>
+                    <div class="col-3 offset-2"><a href="{{ path('contact-mail') }}" class="btn btn-outline-warning">Annuler</a></div>
+                </div>
+                {{ form_end(form) }}
             </section>
         </div>
         <hr>

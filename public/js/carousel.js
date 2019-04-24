@@ -1,10 +1,11 @@
-
-$('#blogCarousel').carousel({
-    interval: 2000
-});
-$('#playButton').click(function () {
-    $('#myCarousel').carousel('cycle');
-});
-$('#pauseButton').click(function () {
-    $('#myCarousel').carousel('pause');
+$(function () {
+    $('#blogCarousel').carousel({
+        interval: 2000
+    });
+    $('#playButton').click(function () {
+        $('#blogCarousel').carousel('cycle');
+    });
+    $('#pauseButton').click(function () {
+        $('#blogCarousel').carousel('pause');
+    });
 });

@@ -28,14 +28,6 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
-            <div id="carouselButtons">
-                <button id="playButton" type="button" class="btn btn-default btn-xs">
-                    <span class="glyphicon glyphicon-play"></span>
-                </button>
-                <button id="pauseButton" type="button" class="btn btn-default btn-xs">
-                    <span class="glyphicon glyphicon-pause"></span>
-                </button>
-            </div>
         </div>
         <!-- End Slider-banner -->
     </div>
@@ -71,6 +63,33 @@
 
     </div>
     <!-- End Block recherche-->
+    {%  if artisans %}
+    <section id="resultsearch" class="my-5">
+        <div class="container">
+        <div class="row">
+        {% for artisan in artisans %}
+                    <div class="col-6 col-md-3 mx-4 my-2">
+                        <div class="card" style="width:20rem; height:15rem">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ artisan.Entreprise }}</h5>
+                                <p class="card-text">Adresse :{{ artisan.adresse }}</p>
+                                <p class="card-text">Secteur d'activité: {{ artisan.secteuractivite }}</p>
+                                    {% if artisan.siteweb %}
+                                <a href="{artisan.siteweb}" class="btn btn-primary">
+                                Site web
+                                </a>
+                                    {% else %}
+                                    {% endif %}
+                            </div>
+                        </div>
+                    </div>
+        {%  endfor %}
+        </div>
+    </section>
+    {% else %}
+        Aucun artisan disponible, désolé
+    {% endif  %}
+
 
     <div class="container-fluid" >
         <div class="row">
@@ -170,7 +189,23 @@
     <!-- Module Call To Action -> Newsletter -->
     <br>
     <div id="banner1" style="border-bottom: 1px solid #ff5858">
-    {{ include('CallToAction/cta-newsletter.html.twig') }}
+        <section class="text-light bg-dark">
+            <div class="container" style="text-align: center; padding-top: 15px; padding-bottom: 15px">
+                <div class="col-12">
+                    <div class="col-12">
+                        <h3>Abonnez-vous à la newsletter</h3>
+                        <p>Afin d'être informé régulièrement de l'actualité concernant les produits et techniques, la législation et la fiscalité relatives aux travaux de votre habitat ...</p>
+                    </div>
+                    {{ form_start(form_newsletter)}}
+                    {{ form_widget(form_newsletter) }}
+
+                    <button class="btn btn-success">Envoyer mon message</button>
+                    {{ form_end(form_newsletter) }}
+                    <p>En renseignant votre adresse e-mail, vous accepter de recevoir chaque mois notre newsletter. Voir notre <a href="{{ path('confidentialite') }}" >Politique de confidentialité</a>.<br>
+                        Vous pouvez vous désincrire à tout moment à l'aide du lien de désincription joint à la newsletter ou en nous adressant un mail à l'adresse suivante newsletter@bricotravopro.fr</p>
+                </div>
+            </div>
+        </section>
     </div>
     <br>
     <!-- Module Call To Action -> BackToTop -->
