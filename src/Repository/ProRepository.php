@@ -20,15 +20,16 @@ class ProRepository extends ServiceEntityRepository
     }
 
 
-     /**
-      * @return Pro[] Returns an array of Pro objects
-      */
+    /**
+     * @param $criteres
+     * @return Pro[] Returns an array of Pro objects
+     */
 
     public function rechercheArtisan($criteres)
     {
         return $this->createQueryBuilder('c')
-            ->andWhere('c.CP = :CP')
-            ->setParameter('CP', $criteres['CP'])
+            ->andWhere('c.Ville = :Ville')
+            ->setParameter('Ville', $criteres['Ville'])
             ->andWhere('c.SecteurActivite = :SecteurActivite')
             ->setParameter('SecteurActivite', $criteres['SecteurActivite'])
             ->orderBy('c.id', 'ASC')
