@@ -102,12 +102,13 @@ class AppFixtures extends Fixture
              $avis = new Avis();
              //  Pour ne pas se retrouver avec deux couples identiques
              $indices = array_splice ( $pro_user_indices , rand(0, count($pro_user_indices) - 1), 1) [0];
+             $user= $users[$indices[1]];
              $avis->setIdPro($pros[$indices[0]]);
-             $avis->setEmail($pro->getEmail());
+             $avis->setEmail($user->getEmail());
              $avis->setNote(rand(0, 5));
              $avis->setCommentaire($faker->text);
              $avis->setDate($faker->dateTime());
-             $avis->setIdParticulier($users[$indices[1]]);
+             $avis->setIdParticulier($user);
              $manager->persist($avis);	 
          }
 
@@ -141,7 +142,8 @@ class AppFixtures extends Fixture
         $email_newsletters = []; 
         for ($i = 0; $i < 20; $i++) {
             $email_newsletter = new EmailNewsletter();
-            $email_newsletter->setEmail($faker->text);
+            $email_newsletter->setEmail($faker->safeEmail);
+            $manager->persist($email_newsletter);
         }        
         // Création des ContactMail
         for ($i = 0; $i < 10; $i++) {
@@ -151,6 +153,7 @@ class AppFixtures extends Fixture
             $contact_mail->setEmail($faker->safeEmail);
             $contact_mail->setSujet($nbWords = 4, $variableNbWords = true);
             $contact_mail->setMessage($faker->text);
+            $manager->persist($contact_mail);
         }
 
         $manager->flush();
