@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 $(document).ready(function() {
     $('#ajaxForm').submit(function(e){
         e.preventDefault();
@@ -27,5 +27,4 @@ $(document).ready(function() {
         }
     });
 });
-=======
->>>>>>> 5d05274b193ef2393f26e95ca365aaab2fb600c7
+
