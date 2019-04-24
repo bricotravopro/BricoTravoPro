@@ -29,6 +29,11 @@ class ContactMail
     /**
      * @ORM\Column(type="string", length=255)
      */
+    private $Email;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
     private $Sujet;
 
     /**
@@ -62,6 +67,16 @@ class ContactMail
     {
         $this->Prenom = $Prenom;
 
+        return $this;
+    }
+    public function getEmail()
+    {
+        return $this->Email;
+    }
+
+    public function setEmail($Email): self
+    {
+        $this->Email = $Email;
         return $this;
     }
 
