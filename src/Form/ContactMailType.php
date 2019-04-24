@@ -19,6 +19,7 @@ class ContactMailType extends AbstractType
             ->add('Email')
             ->add('Sujet', ChoiceType::class, [
                 'choices'  => [
+                    'Choisissez votre sujet' => 'Choisissez votre sujet',
                     'Demande d\'informations' => 'Demande d\'informations',
                     'Demande de partenariat' => 'Demande de partenariat' ,
                     'Demande d\'entretien téléphonique' => 'Demande d\'entretien téléphonique',
