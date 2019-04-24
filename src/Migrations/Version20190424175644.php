@@ -10,11 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-<<<<<<< HEAD:src/Migrations/Version20190423102057.php
-final class Version20190423102057 extends AbstractMigration
-=======
-final class Version20190423130614 extends AbstractMigration
->>>>>>> 5d05274b193ef2393f26e95ca365aaab2fb600c7:src/Migrations/Version20190423130614.php
+final class Version20190424175644 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -27,6 +23,7 @@ final class Version20190423130614 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('CREATE TABLE avis (id_pro_id INT NOT NULL, id_particulier_id INT NOT NULL, email VARCHAR(255) NOT NULL, note INT NOT NULL, commentaire VARCHAR(255) DEFAULT NULL, date DATETIME NOT NULL, INDEX IDX_8F91ABF0E5805157 (id_pro_id), INDEX IDX_8F91ABF095F8B361 (id_particulier_id), PRIMARY KEY(id_pro_id, id_particulier_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE contact_mail (id INT AUTO_INCREMENT NOT NULL, nom VARCHAR(255) NOT NULL, prenom VARCHAR(255) NOT NULL, sujet VARCHAR(255) NOT NULL, message VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE contact_particulier (id INT AUTO_INCREMENT NOT NULL, id_particulier_id INT DEFAULT NULL, sujet VARCHAR(255) NOT NULL, message VARCHAR(255) NOT NULL, date DATETIME DEFAULT CURRENT_TIMESTAMP, INDEX IDX_2686B4D95F8B361 (id_particulier_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE contact_pro (id INT AUTO_INCREMENT NOT NULL, id_pro_id INT DEFAULT NULL, sujet VARCHAR(255) NOT NULL, message VARCHAR(255) NOT NULL, date DATETIME DEFAULT CURRENT_TIMESTAMP, INDEX IDX_968EB7C7E5805157 (id_pro_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE email_newsletter (id INT AUTO_INCREMENT NOT NULL, email VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
@@ -49,6 +46,7 @@ final class Version20190423130614 extends AbstractMigration
         $this->addSql('ALTER TABLE avis DROP FOREIGN KEY FK_8F91ABF0E5805157');
         $this->addSql('ALTER TABLE contact_pro DROP FOREIGN KEY FK_968EB7C7E5805157');
         $this->addSql('DROP TABLE avis');
+        $this->addSql('DROP TABLE contact_mail');
         $this->addSql('DROP TABLE contact_particulier');
         $this->addSql('DROP TABLE contact_pro');
         $this->addSql('DROP TABLE email_newsletter');
