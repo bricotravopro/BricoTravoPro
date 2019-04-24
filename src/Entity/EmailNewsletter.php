@@ -6,7 +6,6 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity
@@ -29,6 +28,11 @@ class EmailNewsletter
     private $email;
 
     // méthode
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
     public function getEmail()
     {
         return $this->email;

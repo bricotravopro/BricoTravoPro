@@ -15,7 +15,6 @@ class ParticulierController extends AbstractController
      */
     public function index()
     {
-
         return $this->render('particuliers/particuliers.html.twig');
     }
 }

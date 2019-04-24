@@ -32,7 +32,7 @@ class ContactPro
     private $Date;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Pro", inversedBy="id")
+     * @ORM\Column(type="integer")
      */
     private $ID_Pro;
 
@@ -77,12 +77,12 @@ class ContactPro
         return $this;
     }
 
-    public function getIDPro(): ?Pro
+    public function getIDPro()
     {
         return $this->ID_Pro;
     }
 
-    public function setIDPro(?Pro $ID_Pro): self
+    public function setIDPro($ID_Pro): self
     {
         $this->ID_Pro = $ID_Pro;
 

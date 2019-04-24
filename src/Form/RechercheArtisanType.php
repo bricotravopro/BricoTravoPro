@@ -13,6 +13,6 @@ class RechercheArtisanType extends AbstractType
     {
         $builder
             ->add('SecteurActivite')
-            ->add('CP');
+            ->add('Ville');
     }
 }

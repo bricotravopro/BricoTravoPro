@@ -66,10 +66,6 @@ class Particulier implements UserInterface, \Serializable
      */
     private $Ville;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Avis", mappedBy="Id_Particulier")
-     */
-    private $AvisLaisse;
 
     public function __construct()
     {
@@ -168,7 +164,6 @@ class Particulier implements UserInterface, \Serializable
     }
 
 
-
     /**
      * Returns the roles granted to the user.
      *
@@ -260,36 +255,5 @@ class Particulier implements UserInterface, \Serializable
             $this->Email,
             $this->MotDePasse
             ) = unserialize($serialized, ['allowed_classes' => false]);
-    }
-
-    /**
-     * @return Collection|Avis[]
-     */
-    public function getAvisLaisse(): Collection
-    {
-        return $this->AvisLaisse;
-    }
-
-    public function addAvisLaisse(Avis $avisLaisse): self
-    {
-        if (!$this->AvisLaisse->contains($avisLaisse)) {
-            $this->AvisLaisse[] = $avisLaisse;
-            $avisLaisse->setIdParticulier($this);
-        }
-
-        return $this;
-    }
-
-    public function removeAvisLaisse(Avis $avisLaisse): self
-    {
-        if ($this->AvisLaisse->contains($avisLaisse)) {
-            $this->AvisLaisse->removeElement($avisLaisse);
-            // set the owning side to null (unless already changed)
-            if ($avisLaisse->getIdParticulier() === $this) {
-                $avisLaisse->setIdParticulier(null);
-            }
-        }
-
-        return $this;
     }
 }

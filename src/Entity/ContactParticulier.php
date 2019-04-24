@@ -32,7 +32,7 @@ class ContactParticulier
     private $Date;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Particulier", inversedBy="id")
+     * @ORM\Column(type="integer")
      */
     private $ID_Particulier;
 
@@ -77,12 +77,12 @@ class ContactParticulier
         return $this;
     }
 
-    public function getIDParticulier(): ?Particulier
+    public function getIDParticulier()
     {
         return $this->ID_Particulier;
     }
 
-    public function setIDParticulier(?Particulier $ID_Particulier): self
+    public function setIDParticulier($ID_Particulier): self
     {
         $this->ID_Particulier = $ID_Particulier;
 

@@ -47,7 +47,7 @@
                     {{ form_row(search_form.SecteurActivite) }}
                 </div>
                 <div class="col">
-                    {{ form_row(search_form.CP) }}
+                    {{ form_row(search_form.Ville) }}
                 </div>
                 <div class="col">
                     <div class="form-group">
@@ -60,6 +60,32 @@
     </div>
 
     <!-- End Block recherche-->
+    {%  if artisans %}
+    <section id="resultsearch" class="my-5">
+        <div class="container">
+        <div class="row">
+        {% for artisan in artisans %}
+                    <div class="col-6 col-md-3 mx-4">
+                        <div class="card" style="width:20rem; height:15rem">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ artisan.Entreprise }}</h5>
+                                <p class="card-text">Adresse :{{ artisan.adresse }}</p>
+                                <p class="card-text">Secteur d'activité: {{ artisan.secteuractivite }}</p>
+                                    {% if artisan.siteweb %}
+                                <a href="{artisan.siteweb}" class="btn btn-primary">
+                                Site web
+                                </a>
+                                    {% else %}
+                                    {% endif %}
+                            </div>
+                        </div>
+                    </div>
+        {%  endfor %}
+        </div>
+    </section>
+    {% else %}
+    {% endif  %}
+
 
     <div class="container-fluid" >
         <div class="row">
@@ -159,7 +185,17 @@
     <!-- Module Call To Action -> Newsletter -->
     <br>
     <div id="banner1" style="border-bottom: 1px solid #ff5858">
-    {{ include('CallToAction/cta-newsletter.html.twig') }}
+        <section class="text-light bg-dark">
+            <div class="container" style="text-align: center; padding-top: 15px; padding-bottom: 15px">
+                <div class="col-12">
+                    {{ form_start(form_newsletter)}}
+                    {{ form_widget(form_newsletter) }}
+
+                    <button class="btn btn-success">Envoyer mon message</button>
+                    {{ form_end(form_newsletter) }}
+                </div>
+            </div>
+        </section>
     </div>
     <br>
     <!-- Module Call To Action -> BackToTop -->
