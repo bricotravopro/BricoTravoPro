@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\Particulier;
 use App\Entity\Pro;
 use App\Entity\User;
+use App\Entity\Avis;
 use Cocur\Slugify\SlugifyInterface;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
