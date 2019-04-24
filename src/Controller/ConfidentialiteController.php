@@ -14,7 +14,7 @@ class ConfidentialiteController extends AbstractController
      * @Route("/confidentialite", name="confidentialite")
      * @return Response
      */
-    public function index()
+    public function confidentialite()
     {
 
         return $this->render('document/confidentialite.html.twig');
