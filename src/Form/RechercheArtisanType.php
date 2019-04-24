@@ -13,6 +13,7 @@ class RechercheArtisanType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+
             ->add('SecteurActivite', ChoiceType::class, [
                 'choices' => [
                     'Plomberie' => 'Plomberie',
@@ -25,6 +26,7 @@ class RechercheArtisanType extends AbstractType
                     'Revêtements et sols' => 'Revêtements et sols',
                     'Menuiserie' => 'Menuiserie',
                 ]])
+
             ->add('Ville');
     }
 }

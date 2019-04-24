@@ -20,9 +20,10 @@ class ProRepository extends ServiceEntityRepository
     }
 
 
-     /**
-      * @return Pro[] Returns an array of Pro objects
-      */
+    /**
+     * @param $criteres
+     * @return Pro[] Returns an array of Pro objects
+     */
 
     public function rechercheArtisan($criteres)
     {
