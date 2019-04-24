@@ -6,7 +6,7 @@ $(document).ready(function() {
         submit;
         form.find('.error-message').remove();
         form.find('.error').removeClass('error');
-        $.post(form.attr('action'),{name:$('#name').val() , prenom:$('#prenom').val() , objet:$('#objet').val() , url:$('#url').val() , mail:$('#mail').val() , message:$('#message').val(), nospam:1}, function(data){
+        $.post(form.attr('action'),{name:$('#name').val() , prenom:$('#prenom').val() , objet:$('#objet').val()  , mail:$('#mail').val() , message:$('#message').val(), nospam:1}, function(data){
             if(data.errors){
                 for(var i in data.errors){
                     $('#'+i).addClass('error').parent().append('<span class="error-message">'+data.errors[i]+'</span>');
