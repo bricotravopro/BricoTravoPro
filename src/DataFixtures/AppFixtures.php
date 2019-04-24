@@ -9,6 +9,8 @@ use App\Entity\Avis;
 use App\Entity\ContactPro;
 use App\Entity\ContactParticulier;
 use App\Entity\SecteurActivite;
+use App\Entity\ContactMail;
+use App\Entity\EmailNewsletter;
 use Cocur\Slugify\SlugifyInterface;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -90,21 +92,22 @@ class AppFixtures extends Fixture
         
 
          // Création des Avis
-        $pro_indices = [];      //  Pour supprimer un à un les indices utilisés (array_splice)
-        for ($i = 0; $i < 10; $i++) {
-            $pro_indices[$i] = $i;
+        $pro_user_indices = [];      //  Tableau de tout les couples possibles
+        for ($i = 0; $i < count($pros); $i++) {
+            for ($j = 0; $j < count($users); $j++) {
+                $pro_user_indices[] = [$i, $j];
+            }
         }
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 30; $i++) {
              $avis = new Avis();
-            //  Pour ne pas se retrouver avec deux couples identiques
-             $avis->setIdPro(
-                $pros[array_splice ( $pro_indices , rand(0, count($pro_indices) - 1), 1) [0]]
-            );
+             //  Pour ne pas se retrouver avec deux couples identiques
+             $indices = array_splice ( $pro_user_indices , rand(0, count($pro_user_indices) - 1), 1) [0];
+             $avis->setIdPro($pros[$indices[0]]);
              $avis->setEmail($pro->getEmail());
              $avis->setNote(rand(0, 5));
              $avis->setCommentaire($faker->text);
              $avis->setDate($faker->dateTime());
-             $avis->setIdParticulier($users[rand(0, 9)]);
+             $avis->setIdParticulier($users[$indices[1]]);
              $manager->persist($avis);	 
          }
 
