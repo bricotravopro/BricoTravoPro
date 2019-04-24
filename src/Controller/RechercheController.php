@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class RechercheController extends AbstractController
 {
     /**
-     * @Route ("/", name="home")
+     * @Route ("/search", name="search")
      */
     public function RechercheArtisan(Request $request, ProRepository $ProRepository)
     {

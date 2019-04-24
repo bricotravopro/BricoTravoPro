@@ -25,8 +25,11 @@ class ContactController extends AbstractController
 
         $form->handleRequest($request);
 
+
         if ($form->isSubmitted() && $form->isValid()) {
             $contactparticulier->setDate(new \DateTime('now'));
+            $contactparticulier->setIDParticulier($this->getUser()->getId());
+
             // Ajouter du message en BDD
             $manager = $this->getDoctrine()->getManager();
 
@@ -53,6 +56,7 @@ class ContactController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $contactpro->setDate(new \DateTime('now'));
+            $contactpro->setIDPro($this->getUser()->getId());
             // Ajouter du message en BDD
             $manager = $this->getDoctrine()->getManager();
 
