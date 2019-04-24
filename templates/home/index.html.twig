@@ -101,7 +101,9 @@
         {% else %}
         <br>
     <div id="banner1" style="border-bottom: 1px solid #ff5858">
-        {{ include('CallToAction/cta-connexion.html.twig') }}
+        {{   include('CallToAction/cta-connexion.html.twig') }}
+
+
     </div>
         <br>
     {% endif %}
@@ -111,7 +113,7 @@
         <div class="container">
             <!-- Carousel logos partenaires -->
             <div class="row blog">
-                <div class="col-md-12">
+                <div class="col-md-12 text-center">
                     <div id="blogCarousel" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
                             <li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
@@ -159,7 +161,9 @@
     <!-- Module Call To Action -> Newsletter -->
     <br>
     <div id="banner1" style="border-bottom: 1px solid #ff5858">
-    {{ include('CallToAction/cta-newsletter.html.twig') }}
+        {{ render(controller(
+            'App\\Controller\\EmailNewsletterController::insererNewsletter'
+        )) }}
     </div>
     <br>
     <!-- Module Call To Action -> BackToTop -->

@@ -9,12 +9,12 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 
-class ContactMailController extends AbstractController
+class ContactMailController
 {
     /**
-     * @Route("/contact-mail", name="contact")
-     * @param Request $request
+     * @Route("/contact-mail", name="contact-mail")
      * @return Response
      */
     public function ContactMail(Request $request)

@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
     $('#ajaxForm').submit(function(e){
         e.preventDefault();
@@ -26,3 +27,4 @@ $(document).ready(function() {
         }
     });
 });
+
