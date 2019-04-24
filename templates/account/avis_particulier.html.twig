@@ -1,0 +1,68 @@
+{# http://127.0.0.1:8000/avis/particulier/{id} #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <form>
+        <div class="form-row">
+            <label for="inputid">Identifiant</label>
+            <input type="number" class="form-control" id="inputAddress2" placeholder="Identifiant">
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Email</label>
+                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword4">Mot de passe</label>
+                <input type="password" class="form-control" id="inputPassword4" placeholder="Mot de passe">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputAddress">Addresse</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="01 rue de Paris">
+        </div>
+        <div class="form-group">
+            <label for="inputAddress2">Complement d'adresse</label>
+            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartement, studio, Bis, Ter">
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputCity">Ville</label>
+                <input type="text" class="form-control" id="inputCity">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputState">Pays</label>
+                <select id="inputState" class="form-control">
+                    <option selected>Choix...</option>
+                    <option>France</option>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputZip">Code Postal</label>
+                <input type="text" class="form-control" id="Code postal">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Envoi</button>
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
