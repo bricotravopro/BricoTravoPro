@@ -33,25 +33,26 @@
     </div>
     <!-- Block recherche-->
     <div class="container">
-        <h3  class="recherche col-6 offset-3 text-center"> Trouver un artisan près de chez vous. </h3>
-        <p class="col-12">Une fuite, une chaudière à changer ou encore des travaux d'économies d'énergie à entreprendre, les artisans de BricoTravoPro sont là pour vous accompagner dans votre démarche.<br>
-            Grâce à un moteur de recherche multicritères, vous pouvez trouver un professionnel, géo-localisable près de chez vous, capable de répondre à vos besoins spécifiques.</p>
+        <h3  class="recherche col-6 offset-3 text-center" style="margin-top: 15px"> Trouver un artisan près de chez vous. </h3>
+        <p class="col-12">Une fuite d'eau, une chaudière à changer, des travaux d'isolation...<br>
+            <strong>BricoTravoPro</strong> est la solution pour vous accompagner dans vos démarches de travaux de rénovation, d'aménagement ou de réhabilitation.</p>
+        <p class="col-12">Grâce à son moteur de recherche multicritères, <strong>BricoTravoPro</strong> vous donne la possibilité de trouver un professionnel selon la spécialité et la géolocalisation demandées.</p>
+        <p class="col-12">Pour trouver l'artisan idéal, vous pouvez également vous fier aux évaluations laissées par d'autres clients ...</p>
     </div>
-    <div class="container-fluid">
 
-    <div class="jumbotron">
-        <div class="container">
+    <div class="container">
+        <div class="jumbotron">
             {{ form_start(search_form) }}
             <div class="form-row align-items-end">
-                <div class="col">
+                <div class="col-md-5">
                     {{ form_row(search_form.SecteurActivite) }}
                 </div>
-                <div class="col">
+                <div class="col-md-5">
                     {{ form_row(search_form.Ville) }}
                 </div>
-                <div class="col">
+                <div class="col-md-2">
                     <div class="form-group">
-                        <button class="btn btn-primary">Recherche</button>
+                        <button class="btn btn-secondary">Recherche</button>
                     </div>
                 </div>
             </div>
@@ -59,38 +60,35 @@
         </div>
     </div>
 
-    <div>
-
-    </div>
     <!-- End Block recherche-->
     {%  if artisans %}
     <section id="resultsearch" class="my-5">
         <div class="container">
-        <div class="row">
-        {% for artisan in artisans %}
+            <div class="row">
+                {% for artisan in artisans %}
                     <div class="col-6 col-md-3 mx-4 my-2">
                         <div class="card" style="width:20rem; height:15rem">
                             <div class="card-body">
                                 <h5 class="card-title">{{ artisan.Entreprise }}</h5>
                                 <p class="card-text">Adresse :{{ artisan.adresse }}</p>
                                 <p class="card-text">Secteur d'activité: {{ artisan.secteuractivite }}</p>
-                                    {% if artisan.siteweb %}
-                                <a href="{artisan.siteweb}" class="btn btn-primary">
-                                Site web
-                                </a>
-                                    {% else %}
-                                    {% endif %}
+                                {% if artisan.siteweb %}
+                                    <a href="{artisan.siteweb}" class="btn btn-primary">
+                                        Site web
+                                    </a>
+                                {% else %}
+                                {% endif %}
                             </div>
                         </div>
                     </div>
-        {%  endfor %}
+                {%  endfor %}
+            </div>
         </div>
-    </section>
     {% else %}
         Aucun artisan disponible, désolé
     {% endif  %}
-
-
+    </section>
+    <!-- Section Flux RSS -->
     <div class="container-fluid" >
         <div class="row">
             <div class="col-7" id="activite" >
@@ -104,7 +102,8 @@
                 <!-- start feedwind code --> <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" data-fw-param="107532/"></script> <!-- end feedwind code -->
             </div>
         </div>
-        </div>
+    </div>
+    <!-- Section Infos -->
     <section id="infos">
         <div class="container">
             <div class="row" style="alignment: center">
@@ -141,7 +140,7 @@
         <div class="container">
             <!-- Carousel logos partenaires -->
             <div class="row blog">
-                <div class="col-md-12">
+                <div class="col-md-12 mx-auto">
                     <div id="blogCarousel" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
                             <li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
@@ -149,33 +148,33 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <div class="row justify-content-between">
-                                    <div class="col-md-3">
+                                <div class="row">
+                                    <div class="col-md-3 mx-auto">
                                         <img src="/images/logo_partenaire_cma.svg" alt="Logo Chambre des Métiers et de l'Artisanat" style="max-width:50%;">
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 mx-auto">
                                         <img src="/images/logo_partenaire_maitresartisans.svg" alt="Logo Maître artisan" style="max-width:50%;">
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 mx-auto">
                                         <img src="/images/logo_partenaire_webforce3.svg" alt="Logo Webforce3" style="max-width:50%;">
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 mx-auto">
                                         <img src="/images/logo_partenaire_hautsdefrance.svg" alt="Logo Région Hauts de France" style="max-width:50%;">
                                     </div>
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <div class="row">
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 mx-auto">
                                         <img src="/images/logo_partenaire_tdipointcom.svg" alt="Logo TDI.com" style="max-width:50%;">
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 mx-auto">
                                         <img src="/images/logo_partenaire_leroy-merlin.svg" alt="Logo Leroy Merlin" style="max-width:50%;">
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 mx-auto">
                                         <img src="/images/logo_partenaire_point-p.svg" alt="Logo Point P" style="max-width:50%;">
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 mx-auto">
                                         <img src="/images/logo_partenaire_castorama.svg" alt="Logo Castorama" style="max-width:50%;">
                                     </div>
                                 </div>
@@ -194,12 +193,12 @@
                 <div class="col-12">
                     <div class="col-12">
                         <h3>Abonnez-vous à la newsletter</h3>
-                        <p>Afin d'être informé régulièrement de l'actualité concernant les produits et techniques, la législation et la fiscalité relatives aux travaux de votre habitat ...</p>
+                        <p>Afin d'être informé régulièrement de l'actualité concernant les produits et techniques, la législation et la fiscalité relatives aux travaux de votre habitat ...<br>
+                            Renseignez votre e-mail, dans le champs ci-dessous :</p>
                     </div>
                     {{ form_start(form_newsletter)}}
                     {{ form_widget(form_newsletter) }}
-
-                    <button class="btn btn-success">Envoyer mon message</button>
+                    <button class="btn btn-success">Envoyer mon adresse e-mail</button>
                     {{ form_end(form_newsletter) }}
                     <p>En renseignant votre adresse e-mail, vous accepter de recevoir chaque mois notre newsletter. Voir notre <a href="{{ path('confidentialite') }}" >Politique de confidentialité</a>.<br>
                         Vous pouvez vous désincrire à tout moment à l'aide du lien de désincription joint à la newsletter ou en nous adressant un mail à l'adresse suivante newsletter@bricotravopro.fr</p>

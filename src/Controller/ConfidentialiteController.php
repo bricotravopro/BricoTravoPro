@@ -17,6 +17,6 @@ class ConfidentialiteController extends AbstractController
     public function confidentialite()
     {
 
-        return $this->render('document/confidentialite.html.twig');
+        return $this->render('documents/confidentialite.html.twig');
     }
 }

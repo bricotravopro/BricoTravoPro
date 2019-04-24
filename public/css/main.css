@@ -48,6 +48,10 @@ body{
     margin-top: -15px!important;
 }
 
+.bg-orange{
+    background-color: #ff5858;
+}
+
 
 /* CAROUSEl & BANNIEREs */
 #banner1{
@@ -139,6 +143,10 @@ body{
     margin-top: 10px;
     margin-bottom: 30px;
 }
+.apricot {
+    color: #fbceb1;
+}
+
 
 /*CADREs PAGEs FOOTEr*/
 #docs{
