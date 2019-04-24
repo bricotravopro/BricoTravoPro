@@ -51,13 +51,15 @@ class AppFixtures extends Fixture
         }
         // Création des pros
         $pros = []; // Le tableau nous aide à retrouver les professionnels
-        for ($i = 1; $i <= 10; $i++) {
+        for ($i = 1; $i <= 200; $i++) {
             $pro = new Pro();
             $pro->setEntreprise($faker->domainWord($gender = null));
             $pro->setPrenom($faker->firstName($gender = null));
             $pro->setNom($faker->lastName);
             $pro->setAdresse($faker->address);
-            $pro->setVille($faker->city);
+            $pro->setVille($faker->randomElement([
+                'Lille', 'Marcq-en-Baroeul','La Madeleine', 'Lomme', 'Dunkerque', 'Arras', 'Lens','Amiens','Bethunes','St-Omer','Maubeuge', 'Valenciennes','Douais'
+            ]));
             $pro->setCP($faker->randomElement([
                 '59000', '59260', '59800', '80000', '75000'
             ]));
@@ -68,7 +70,7 @@ class AppFixtures extends Fixture
                 '123456789', '987654321'
             ]));
             $pro->setSecteurActivite($faker->randomElement([
-                'Maçonnerie', 'Gros oeuvre', 'Couvreur'
+                'Plomberie', 'Charpente', 'Chauffage', 'Couvreur/Toiture', 'Electricité', 'Espaces Verts', 'Maçonnerie', 'Peinture', 'Revêtements et sols', 'Menuiserie'
             ]));
 
             $pro->setEmail($faker->safeEmail);
