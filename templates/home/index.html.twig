@@ -72,6 +72,7 @@
                                 <h5 class="card-title">{{ artisan.Entreprise }}</h5>
                                 <p class="card-text">Adresse :{{ artisan.adresse }}</p>
                                 <p class="card-text">Secteur d'activité: {{ artisan.secteuractivite }}</p>
+                                <a href="tel:+33600000000">Appeler le {{ artisan.telephone }}</a><br>
                                 {% if artisan.siteweb %}
                                     <a href="{artisan.siteweb}" class="btn btn-primary">
                                         Site web
@@ -85,7 +86,6 @@
             </div>
         </div>
     {% else %}
-        Aucun artisan disponible, désolé
     {% endif  %}
     </section>
     <!-- Section Flux RSS -->
