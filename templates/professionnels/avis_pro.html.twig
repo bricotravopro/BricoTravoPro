@@ -1,4 +1,4 @@
-{# http://127.0.0.1:8000/avis/particulier/{id} #}
+{# http://127.0.0.1:8000/avis/pro/{id} #}
 {% extends 'base.html.twig' %}
 
 {% block body %}
@@ -7,6 +7,22 @@
         <div class="form-group">
             <label>identifiant</label>
             <input type="text" class="form-control" placeholder="identifiant">
+            <label>Societé</label>
+            <input type="text" class="form-control" placeholder="Societé">
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Nom</label>
+                <input type="text" class="form-control"  placeholder="Nom">
+            </div>
+            <div class="form-group col-md-6">
+                <label>Prenom</label>
+                <input type="text" class="form-control" placeholder="Prenom">
+            </div>
+        </div>
+        <div class="form-group">
+            <label >Siret</label>
+            <input type="number" class="form-control" placeholder="Siret">
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -51,24 +67,6 @@
         </div>
         <button type="submit" class="btn btn-primary">Envoi</button>
     </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 {% endblock %}

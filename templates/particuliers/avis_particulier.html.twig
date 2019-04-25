@@ -1,0 +1,32 @@
+{# http://127.0.0.1:8000/avis/particulier/{id} #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+{% for avis in Id_Pro.avis %}
+	<div class="avis">
+		<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+		<meta itemprop="datePublished" content="{{ avis.Date|date('Y-m-d') }}">{{ avis.Date|date('d F Y') }}
+			{% for i in 1..5 %}
+				<span {{ (avis.Note >= i) ? 'full' }}"></span>
+			{% endfor %}
+			({{ avis.Note }}) par {{ avis.Id_Particulier }}
+		<p class="blockquote">
+		<p class="mb-0">{{ avis.Commentaire }}</p>
+		</p>
+		<hr>
+	</div>
+{% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
