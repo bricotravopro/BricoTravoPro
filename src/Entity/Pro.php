@@ -371,6 +371,37 @@ class Pro implements UserInterface, Serializable
     }
 
     /**
+     * @return Collection|Avis[]
+     */
+    public function getAvisObtenu(): Collection
+    {
+        return $this->AvisObtenu;
+    }
+
+    public function addAvisObtenu(Avis $avisObtenu): self
+    {
+        if (!$this->AvisObtenu->contains($avisObtenu)) {
+            $this->AvisObtenu[] = $avisObtenu;
+            $avisObtenu->setIDPro($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAvisObtenu(Avis $avisObtenu): self
+    {
+        if ($this->AvisObtenu->contains($avisObtenu)) {
+            $this->AvisObtenu->removeElement($avisObtenu);
+            // set the owning side to null (unless already changed)
+            if ($AvisObtenu->getIDPro() === $this) {
+                $AvisObtenu->setIDPro(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
      * String representation of object
      * @link https://php.net/manual/en/serializable.serialize.php
      * @return string the string representation of the object or null
