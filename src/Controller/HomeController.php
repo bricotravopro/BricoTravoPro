@@ -41,7 +41,7 @@ class HomeController extends AbstractController
         if($rechercheArtisanForm->handleRequest($request)->isSubmitted() && $rechercheArtisanForm->isValid()) {
             $criteres = $rechercheArtisanForm->getData();
             $artisans = $ProRepository->rechercheArtisan($criteres);
-            dump($artisans);
+
         }
         return $this->render('home/index.html.twig',[
             'form_newsletter'=> $form->createView(),

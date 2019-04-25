@@ -30,10 +30,10 @@ class ContactMailController extends AbstractController
 
             $manager->persist($contactmail);
             $manager->flush();
-        }
 
-        // Message Flashbag réussite
-        $this->addFlash('success', 'Message envoyé');
+            // Message Flashbag réussite
+            $this->addFlash('success', 'Message envoyé');
+        }
 
         return $this->render('contact/contact-mail.html.twig', [
             'form'=> $form->createView()

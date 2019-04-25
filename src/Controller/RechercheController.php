@@ -26,11 +26,10 @@ class RechercheController extends AbstractController
         if($rechercheArtisanForm->handleRequest($request)->isSubmitted() && $rechercheArtisanForm->isValid()){
             $criteres = $rechercheArtisanForm->getData();
             $artisans = $ProRepository->rechercheArtisan($criteres);
-        dd($artisans);
+
         }
         return $this->render('home/index.html.twig',[
             'search_form'=> $rechercheArtisanForm->createView(),
             ]);
-
     }
 }
