@@ -401,6 +401,18 @@ class Pro implements UserInterface, Serializable
         return $this;
     }
 
+    public function averageNote(): int {
+        $avisCount = count($this->AvisObtenu);
+        if ($avisCount == 0) {
+            return 0;
+        }
+        $total = 0;
+        for ($i = 0; $i < $avisCount; $i++) {
+            $total += $this->AvisObtenu[$i]->getNote();
+        }
+        return ($total + $avisCount / 2) / $avisCount;
+    }
+
     /**
      * String representation of object
      * @link https://php.net/manual/en/serializable.serialize.php
