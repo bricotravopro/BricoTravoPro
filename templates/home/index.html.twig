@@ -69,7 +69,15 @@
                     <div class="col-6 col-md-3 mx-4 my-2">
                         <div class="card" style="width:20rem; height:15rem">
                             <div class="card-body">
-                                <h5 class="card-title">{{ artisan.Entreprise }}</h5>
+                                <h5 class="card-title">
+                                    {{ artisan.Entreprise }}
+                                    {% for i in 1..artisan.averageNote() %}
+                                        &#x2B50;
+                                    {% endfor %}
+                                    {% for i in (artisan.averageNote()+1)..5 %}
+                                        &#x2606;
+                                    {% endfor %}
+                                </h5>
                                 <p class="card-text">Adresse : {{ artisan.adresse }}</p>
                                 <p class="card-text">Numéro de téléphone : {{ artisan.Telephone }}</p>
                                 <p class="card-text">Secteur d'activité : {{ artisan.secteuractivite }}</p>
@@ -123,6 +131,37 @@
                     <h3 class="text-center" style="color: #ff5858">Inscription gratuite</h3>
                     <p class="text-center">L'inscription et l'utilisation sont totalement gratuites. Une inscription est nécessaire pour bénéficier de l'ensemble des fonctionnalités.</p>
                 </div>
+            </div>
+            <div class="col-12">
+                <h3 class="text-center">Artisans à l'honneur :</h3>
+            </div>
+            <div class="row">
+                {% for artisan in meilleursArtisans %}
+                    <div class="col-6 col-md-3 mx-4 my-2">
+                        <div class="card" style="width:20rem; height:15rem">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    {{ artisan.Entreprise }}
+                                    {% for i in 1..artisan.averageNote() %}
+                                        &#x2B50;
+                                    {% endfor %}
+                                    {% for i in (artisan.averageNote()+1)..5 %}
+                                        &#x2606;
+                                    {% endfor %}
+                                </h5>
+                                <p class="card-text">Adresse : {{ artisan.adresse }}</p>
+                                <p class="card-text">Numéro de téléphone : {{ artisan.Telephone }}</p>
+                                <p class="card-text">Secteur d'activité : {{ artisan.secteuractivite }}</p>
+                                {% if artisan.siteweb %}
+                                    <a href="{artisan.siteweb}" class="btn btn-primary">
+                                        Site web
+                                    </a>
+                                {% else %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {%  endfor %}
             </div>
         </div>
     </section>

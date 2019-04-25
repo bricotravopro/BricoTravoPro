@@ -133,6 +133,7 @@ class Pro implements UserInterface, Serializable
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Avis", mappedBy="Id_Pro")
+     * @ORM\OrderBy({"Date" = "DESC"})
      */
     private $AvisObtenu;
 
@@ -368,6 +369,49 @@ class Pro implements UserInterface, Serializable
         $this->Ville = $Ville;
 
         return $this;
+    }
+
+    /**
+     * @return Collection|Avis[]
+     */
+    public function getAvisObtenu(): Collection
+    {
+        return $this->AvisObtenu;
+    }
+
+    public function addAvisObtenu(Avis $avisObtenu): self
+    {
+        if (!$this->AvisObtenu->contains($avisObtenu)) {
+            $this->AvisObtenu[] = $avisObtenu;
+            $avisObtenu->setIDPro($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAvisObtenu(Avis $avisObtenu): self
+    {
+        if ($this->AvisObtenu->contains($avisObtenu)) {
+            $this->AvisObtenu->removeElement($avisObtenu);
+            // set the owning side to null (unless already changed)
+            if ($AvisObtenu->getIDPro() === $this) {
+                $AvisObtenu->setIDPro(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function averageNote(): int {
+        $avisCount = count($this->AvisObtenu);
+        if ($avisCount == 0) {
+            return 0;
+        }
+        $total = 0;
+        for ($i = 0; $i < $avisCount; $i++) {
+            $total += $this->AvisObtenu[$i]->getNote();
+        }
+        return ($total + $avisCount / 2) / $avisCount;
     }
 
     /**

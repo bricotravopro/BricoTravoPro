@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 use App\Entity\SecteurActivite;
+use App\Repository\ProRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -26,13 +27,14 @@ class SecteurActiviteController extends AbstractController
      * @Route("/secteuractivité/{id}", name="SecteurActivite")
      * @return Response
      */
-    public function pageActivite($id)
+    public function pageActivite($id, ProRepository $ProRepository)
     {
         $em = $this->getDoctrine()->getManager();
         $activite = $em->getRepository(SecteurActivite::class)->find($id);
 
         return $this->render('Search/SecteurActivite.html.twig',[
             'activite'=> $activite,
+            'meilleursArtisans'=> $ProRepository->obtenirMeilleursArtisans(3, $activite->getNom())
         ]);
     }
 

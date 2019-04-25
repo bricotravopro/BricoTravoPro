@@ -2,13 +2,12 @@
 
 namespace App\Controller;
 
-use App\Entity\Particulier;
-use App\Entity\Pro;
 use App\Form\RegisterType;
 use App\Form\RegisterProType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Security;
 
 class AccountController extends AbstractController
 {
@@ -20,15 +19,14 @@ class AccountController extends AbstractController
     ************** */
 
     /**
-    * @Route("/settings/{id}", name="user_infos")
+    * @Route("/settings", name="user_infos")
     * @param Request $request
     * @return Response
     */
-    public function UserSettings(Request $request, Particulier $user)
+    public function UserSettings(Request $request, Security $security)
     {
+        $user = $security->getUser();
         $form = $this->createForm(RegisterType::class, $user);
-        // TODO: Changer l'url {id} quand on aura un système de Slug 🐛
-        // https://github.com/cocur/slugify
 
         $form->handleRequest($request);
 
@@ -42,8 +40,7 @@ class AccountController extends AbstractController
         }
 
         return $this->render('particuliers\account_infos.html.twig', [
-            'form' => $form->createView(),
-            'user' => $user
+            'form' => $form->createView()
         ]);
     }
 
@@ -53,15 +50,14 @@ class AccountController extends AbstractController
     **
     ************** */
     /**
-    * @Route("/settings/pro/{id}", name="pro_infos")
+    * @Route("/settings/pro", name="pro_infos")
     * @param Request $request
     * @return Response
     */
-    public function ProSettings(Request $request, Pro $pro)
+    public function ProSettings(Request $request, Security $security)
     {
+        $pro = $security->getUser();
         $form = $this->createForm(RegisterProType::class, $pro);
-        // TODO: Changer l'url pro/{id} quand on aura un système de Slug 🐛
-        // https://github.com/cocur/slugify
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -73,8 +69,7 @@ class AccountController extends AbstractController
         }
 
         return $this->render('professionnels\account_infos.html.twig', [
-            'form' => $form->createView(),
-            'pro' => $pro
+            'form' => $form->createView()
         ]);
     }
 

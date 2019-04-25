@@ -9,8 +9,8 @@
     <h2>Mes infos</h2>
    <div class="container-fluid">
         <div class="row">
-            <div class="col-8 bg-primary">
-                <div class="container my-5">
+            <div class="col-12 bg-dark" id="form">
+                <div class="container my-5" id="form2">
                     {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
                     {{ form_widget(form) }}
 
@@ -18,9 +18,28 @@
                     {{ form_end(form) }}
                 </div>
             </div>
-            <div class="col-4 bg-success">
-                <h2>Flux RSS du blog</h2>
-                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+
+            <div class="col-12">
+                <h2>Derniers avis laissés</h2>
+                {% for avis in app.user.AvisLaisse %}
+                    <div class="avis">
+                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                        <meta itemprop="datePublished" content="{{ avis.Date|date('Y-m-d') }}">{{ avis.Date|date('d F Y') }}
+                        <span>
+                            {% for i in 1..avis.note %}
+                                &#x2B50;
+                            {% endfor %}
+                            {% for i in (avis.note+1)..5 %}
+                                &#x2606;
+                            {% endfor %}
+                            pour {{ avis.IdPro.Entreprise }}
+                        </span>
+                        <p class="blockquote">
+                        <p class="mb-0">{{ avis.Commentaire }}</p>
+                        </p>
+                        <hr>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>
