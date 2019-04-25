@@ -3,20 +3,21 @@
 namespace App\Controller;
 
 use App\Entity\Particulier;
+use App\Entity\Pro;
 use App\Form\RegisterType;
+use App\Form\RegisterProType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 class AccountController extends AbstractController
 {
+   
     /* **************
     **
-    **  Section infos personnelles:
+    **  Section infos Particuliers
     **
     ************** */
-
-    // Section infos personnel
 
     /**
     * @Route("/settings/{id}", name="user_infos")
@@ -26,7 +27,7 @@ class AccountController extends AbstractController
     public function UserSettings(Request $request, Particulier $user)
     {
         $form = $this->createForm(RegisterType::class, $user);
-        // TODO: Changer l'url {id} quand on aura un système de connexion
+        // TODO: Changer l'url {id} quand on aura un système de Slug
 
         $form->handleRequest($request);
 
@@ -44,6 +45,37 @@ class AccountController extends AbstractController
             'user' => $user
         ]);
     }
+
+    /* **************
+    **
+    **  Section Professionnels :
+    **
+    ************** */
+ /**
+    * @Route("/settings/{id}", name="pro_infos")
+    * @param Request $request
+    * @return Response
+    */
+    public function ProSettings(Request $request, Pro $pro)
+    {
+        $form = $this->createForm(RegisterProType::class, $pro);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $manager = $this->getDoctrine()->getManager();
+
+            $manager->persist($pro);
+            $manager->flush();
+        }
+
+        return $this->render('professionnels\account_infos.html.twig', [
+            'form' => $form->createView(),
+            'pro' => $pro
+        ]);
+    }
+
 }
 
 
