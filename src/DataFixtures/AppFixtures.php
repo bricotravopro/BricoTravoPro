@@ -82,8 +82,8 @@ class AppFixtures extends Fixture
             ]));
 
             $pro->setEmail($faker->safeEmail);
-            $pro->setCGU('1');
-            $pro->setNewsletter('0');
+            $pro->setCGU(1);
+            $pro->setNewsletter(0);
             $pro->setMotDePasse($this->encoder->encodePassword($pro, 'demopassword'));
             $pro->setEmail($faker->safeEmail);
 
