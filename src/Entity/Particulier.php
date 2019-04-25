@@ -68,6 +68,7 @@ class Particulier implements UserInterface, \Serializable
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Avis", mappedBy="Id_Particulier")
+     * @ORM\OrderBy({"Date" = "DESC"})
      */
     private $AvisLaisse;
 

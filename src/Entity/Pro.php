@@ -133,6 +133,7 @@ class Pro implements UserInterface, Serializable
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Avis", mappedBy="Id_Pro")
+     * @ORM\OrderBy({"Date" = "DESC"})
      */
     private $AvisObtenu;
 
