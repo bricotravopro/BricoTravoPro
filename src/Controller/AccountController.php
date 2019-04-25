@@ -27,7 +27,8 @@ class AccountController extends AbstractController
     public function UserSettings(Request $request, Particulier $user)
     {
         $form = $this->createForm(RegisterType::class, $user);
-        // TODO: Changer l'url {id} quand on aura un système de Slug
+        // TODO: Changer l'url {id} quand on aura un système de Slug 🐛
+        // https://github.com/cocur/slugify
 
         $form->handleRequest($request);
 
@@ -51,15 +52,16 @@ class AccountController extends AbstractController
     **  Section Professionnels :
     **
     ************** */
- /**
-    * @Route("/settings/{id}", name="pro_infos")
+    /**
+    * @Route("/settings/pro/{id}", name="pro_infos")
     * @param Request $request
     * @return Response
     */
     public function ProSettings(Request $request, Pro $pro)
     {
         $form = $this->createForm(RegisterProType::class, $pro);
-
+        // TODO: Changer l'url pro/{id} quand on aura un système de Slug 🐛
+        // https://github.com/cocur/slugify
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
