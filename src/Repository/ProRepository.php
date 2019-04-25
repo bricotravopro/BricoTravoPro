@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Pro;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query\Expr\Join;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -37,6 +38,22 @@ class ProRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult()
         ;
+    }
+
+    public function obtenirMeilleursArtisans($max, $secteur = NULL) {
+        // SELECT *, AVG(a.note) as an FROM `pro` p INNER JOIN `avis` a ON p.id = a.id_pro_id GROUP BY p.id ORDER BY an
+        // SELECT * FROM `pro` p INNER JOIN `avis` a ON p.id = a.id_pro_id GROUP BY p.id ORDER BY AVG(a.note)
+        $builder = $this->createQueryBuilder('p');
+        if ($secteur) {
+            $builder = $builder->andWhere('p.SecteurActivite = :SecteurActivite')
+                ->setParameter('SecteurActivite', $secteur);
+        }
+        return $builder->innerJoin('\\App\\Entity\\Avis', 'a', Join::WITH, 'a.Id_Pro = p')
+            ->groupBy('p')
+            ->orderBy('AVG(a.Note)', 'DESC')
+            ->setMaxResults($max)
+            ->getQuery()
+            ->getResult();
     }
 
 
