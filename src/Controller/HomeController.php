@@ -46,7 +46,8 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig',[
             'form_newsletter'=> $form->createView(),
             'search_form'=> $rechercheArtisanForm->createView(),
-            'artisans' => $artisans
+            'artisans' => $artisans,
+            'meilleursArtisans' => $ProRepository->obtenirMeilleursArtisans(3)
         ]);
     }
 
