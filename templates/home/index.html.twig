@@ -91,15 +91,15 @@
     <!-- Section Flux RSS -->
     <div class="container-fluid" >
         <div class="row">
-            <div class="col-7" id="activite" >
+            <div class="col-12 col-md-7" id="activite" >
                 <h2 id="h2o">Secteurs d'activités</h2>
                 <ul class="nav flex-column">
                     {{ render (controller('App\\Controller\\SecteurActiviteController::showAllActivite'))}}
                 </ul>
             </div>
-            <div class="col-5" id="activite">
+            <div class="col-12 col-md-5" id="activite">
                 <h2 id="h2o"><img src="/images/rss1.png"></h2>
-                <!-- start feedwind code --> <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" data-fw-param="107532/"></script> <!-- end feedwind code -->
+                <!-- start feedwind code --> <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" data-fw-param="107532/" height="40rem"></script> <!-- end feedwind code -->
             </div>
         </div>
     </div>
