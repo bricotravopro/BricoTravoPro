@@ -16,7 +16,7 @@ class AvisController extends AbstractController
      * @param Pro $pro
      * @return Response
      */
-    public function avisPro(Avis $avis, Pro $pro) {
+    public function avisPro(Pro $pro) {
         return $this->render('professionnels/avis_pro.html.twig', [
             'pro' => $pro
         ]);
@@ -27,7 +27,7 @@ class AvisController extends AbstractController
      * @param Particulier $particulier
      * @return Response
      */
-    public function avisParticulier(Avis $avis, Particulier $particulier) {
+    public function avisParticulier(Particulier $particulier) {
         return $this->render('particuliers/avis_particulier.html.twig', [
             'particulier' => $particulier
         ]);
