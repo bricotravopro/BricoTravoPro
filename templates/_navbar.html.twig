@@ -21,7 +21,7 @@
             <ul class="navbar-nav ml-auto">
                 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                 <li class="nav-item">
-                    <a class="nav-link text-dark mr-3" href="{{ path(is_granted('ROLE_PARTICULIER') ? 'user_infos' : 'pro_infos', {'id': app.user.id})}}">{{ app.user.nom }} {{ app.user.Prenom }}</a>
+                    <a class="nav-link text-dark mr-3" href="{{ path(is_granted('ROLE_PARTICULIER') ? 'user_infos' : 'pro_infos')}}">{{ app.user.nom }} {{ app.user.Prenom }}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">Déconnexion</a>
