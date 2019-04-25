@@ -1,0 +1,25 @@
+#form{
+    border-radius: 20px;
+    box-shadow: 6px 6px 6px black;
+    margin-bottom: 25px;
+}
+
+#titre{
+    text-align: center;
+    color: lightskyblue;
+}
+
+#form1{
+    color: lightskyblue;
+    padding-bottom: 20px;
+}
+
+#titre1{
+    text-align: center;
+    color: #E08D1E;
+}
+
+#form2{
+    color:#E08D1E;
+    padding-bottom: 20px;
+}

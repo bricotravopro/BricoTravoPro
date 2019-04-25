@@ -49,6 +49,9 @@ class AppFixtures extends Fixture
             ]));
             $user->setEmail($faker->safeEmail);
             $user->setMotDePasse($this->encoder->encodePassword($user, 'demopassword'));
+            $user->setCGU($faker->randomElement([
+                '0', '1'
+            ]));
 
             $manager->persist($user);
             $users[$i] = $user;
