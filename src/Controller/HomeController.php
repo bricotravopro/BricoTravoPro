@@ -31,6 +31,8 @@ class HomeController extends AbstractController
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($newsletterform);
             $manager->flush();
+            // Message Flashbag réussite
+            $this->addFlash('success', 'E-mail enregistré');
         }
 
         $rechercheArtisanForm = $this->createForm(RechercheArtisanType::class);
