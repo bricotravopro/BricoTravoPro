@@ -155,3 +155,11 @@ body{
     box-shadow: 6px 6px 6px black
 }
 
+/*Bannière secteurs activité*/
+
+#secteurActivite{
+    color: white;
+}
+.liste{
+    color: white;
+}

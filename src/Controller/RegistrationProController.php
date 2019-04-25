@@ -44,6 +44,7 @@ class RegistrationProController extends AbstractController
                 $manager->flush();
 
 //      On redirige sur la page mon compte
+            $this->addFlash('success', 'Inscription validée');
                 return $this->redirectToRoute("home");
         }
 

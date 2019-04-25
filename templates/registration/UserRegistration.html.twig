@@ -2,15 +2,37 @@
 
 {% block body %}
     <div class="container-fluid">
-            <div class="bg-primary">
-                <div class="container">
-                    <h1 class="my-4">Inscription</h1>
+            <div class=" bg-dark" id="form">
+                <div class="container" id="form2">
+                    <h1 class="my-4" id="titre1">Inscription</h1>
                     {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-                    {{ form_widget(form) }}
+                    <div class="row" >
+                        <div class="col-6"  >
+                            {{ form_row(form.Nom) }}
+                        </div>
+                        <div class="col-6" id="form2" >
+                            {{ form_row(form.Prenom) }}
+                        </div>
+                    </div>
+                    <div>
+                        {{ form_row(form.Adresse) }}
+                    </div>
+                    <div class="row" >
+                        <div class="col-6"  >
+                            {{ form_row(form.Ville) }}
+                            {{ form_row(form.Email) }}
+                            {{ form_row(form.CGU) }}
+                            {{ form_row(form.Newsletter) }}
+                        </div>
+                        <div class="col-6"  >
+                            {{ form_row(form.CP) }}
+                            {{ form_row(form.MotDePasse) }}
+                        </div>
+                    </div>
 
-                    <button class="btn btn-success">S'inscrire</button>
-                    {{ form_end(form) }}
+                    <button class="btn btn-success" type="submit">S'inscrire</button>
                     <a href="{{ path('login') }}" class="btn btn-primary">Je suis déjà inscris</a>
+                    {{ form_end(form) }}
                 </div>
             </div>
         </div>

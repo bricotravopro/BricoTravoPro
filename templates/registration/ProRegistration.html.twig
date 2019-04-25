@@ -1,21 +1,45 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container-fluid" >
-            <div class=" bg-dark" id="formPro">
-                <div class="container ">
+    <div class="container-fluid">
+            <div class=" bg-dark" id="form">
+                <div class="container" id="form1">
                     <h1 class="my-4" id="titre">Inscription</h1>
-                    <div class="row">
-                        <div class="col-6" id="form1" >
                     {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-                    {{ form_widget(form) }}
+                    <div class="row" >
+                        <div class="col-6"  >
+                            {{ form_row(form.Entreprise) }}
+                            {{ form_row(form.SecteurActivite) }}
+                            {{ form_row(form.Nom) }}
                         </div>
                         <div class="col-6" id="form1" >
+                            {{ form_row(form.NumeroSiret) }}
+                            {{ form_row(form.Logo) }}
+                            {{ form_row(form.Prenom) }}
                         </div>
                     </div>
-                    <button class="btn btn-success">S'inscrire</button>
-                    {{ form_end(form) }}
+                        <div>
+                            {{ form_row(form.Adresse) }}
+                        </div>
+                    <div class="row" >
+                        <div class="col-6"  >
+                            {{ form_row(form.Ville) }}
+                            {{ form_row(form.Telephone) }}
+                            {{ form_row(form.Email) }}
+                            {{ form_row(form.PageFacebook) }}
+                            {{ form_row(form.CGU) }}
+                            {{ form_row(form.Newsletter) }}
+                        </div>
+                        <div class="col-6" id="form1" >
+                            {{ form_row(form.CP) }}
+                            {{ form_row(form.SiteWeb) }}
+                            {{ form_row(form.MotDePasse) }}
+                        </div>
+                    </div>
+                    <button class="btn btn-success" type="submit">S'inscrire</button>
+
                     <a href="{{path('login')}}" class="btn btn-primary">Je suis déjà inscris</a>
+                    {{ form_end(form) }}
                 </div>
             </div>
         </div>

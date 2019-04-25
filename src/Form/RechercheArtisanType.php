@@ -18,6 +18,7 @@ class RechercheArtisanType extends AbstractType
                 'choices' => [
                     'Plomberie' => 'Plomberie',
                     'Charpente' => 'Charpente',
+                    'Chauffage' => 'Chauffage',
                     'Couvreur/Toiture' => 'Couvreur/Toiture',
                     'Electricité' => 'Electricité',
                     'Espaces Verts' => 'Espaces Verts',

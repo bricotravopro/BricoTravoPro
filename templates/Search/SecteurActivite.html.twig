@@ -3,24 +3,9 @@
 
 {% block body %}
 
-
-
-
    <div class="container">
       <h1>{{ activite.nom }}</h1>
        <p>{{ activite.description }}</p>
    </div>
 
-   <div>
-
-
-
-   </div>
-
-   <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-         <li class="breadcrumb-item"><a href="{{ path ('home') }}">Accueil</a></li>
-         <li class="breadcrumb-item active" aria-current="page">{{ activite.nom }}</li>
-      </ol>
-   </nav>
 {% endblock %}

@@ -71,6 +71,17 @@ class Particulier implements UserInterface, \Serializable
      */
     private $AvisLaisse;
 
+    /**
+     * @ORM\Column(type="boolean")
+     * @Assert\IsTrue(message="Veuillez cocher la case")
+     */
+    private $CGU;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $newsletter;
+
     public function __construct()
     {
         $this->isActive = true;
@@ -288,6 +299,30 @@ class Particulier implements UserInterface, \Serializable
                 $avisLaisse->setIdParticulier(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCGU(): ?bool
+    {
+        return $this->CGU;
+    }
+
+    public function setCGU(bool $CGU): self
+    {
+        $this->CGU = $CGU;
+
+        return $this;
+    }
+
+    public function getNewsletter(): ?bool
+    {
+        return $this->newsletter;
+    }
+
+    public function setNewsletter(?bool $newsletter): self
+    {
+        $this->newsletter = $newsletter;
 
         return $this;
     }
